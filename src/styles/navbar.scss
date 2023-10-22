@@ -1,0 +1,62 @@
+.navbar{
+  height: 80px;
+  width: 100%;
+  z-index: 100;
+background-color:"#000080";
+
+top: 58.5px;
+  .container-fluid{
+    z-index: 120;
+    background-color: black;
+  }
+}
+
+.normal-cards{
+  width: 90%;    
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+margin: 0 auto;
+}
+.movies{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+  margin: 0 auto;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    // padding: 6rem;
+    // min-height: 100vh;
+    width: 100vw;
+margin-bottom: 20px;
+  }
+
+  .carousel {
+    width: 90%; /* Set the desired width, e.g., 80% of the parent container */
+    margin: 1.5px auto; /* Center the carousel horizontally (optional) */
+}
+
+.carousel-item {
+  width: 100%; /* Set the width of each slide, e.g., 100% of the carousel container */
+}
+
+
+
+@media screen and (max-width : 992px){
+ .navbar{
+  top: 38.3px;
+ }
+}
