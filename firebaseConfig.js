@@ -12,7 +12,7 @@ import {getStorage} from  'firebase/storage'
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCuSZXDk-Dg8E6l5zwGFh_krpnKVmSMu8A",
-  authDomain: "eawards-app.firebaseapp.com",
+  authDomain: "eawards.vercel.app",
   projectId: "eawards-app",
   storageBucket: "eawards-app.appspot.com",
   messagingSenderId: "987521265914",
