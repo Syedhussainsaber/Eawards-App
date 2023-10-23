@@ -2,9 +2,17 @@ import React, { useEffect } from 'react'
 import UserForm from '@/components/Form'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
+import { useRouter } from 'next/router'
 
 const Login = () => {
 
+  const router = useRouter()
+
+  useEffect(()=>{
+    if(router.route === '/'){
+      router.replace("/home")
+    }
+  },[])
   
 
   return (
