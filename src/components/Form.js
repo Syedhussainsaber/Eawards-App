@@ -53,7 +53,7 @@ toast.error("Email Not Matched!")
 
 }
 
-return (<form className='mx-auto w-50 my-4' onSubmit={handleSubmit}>
+return (<form className='mx-auto col-sm-6 col-10 my-4' onSubmit={handleSubmit}>
   <div className="mb-3">
     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
     <input type="email" onChange={(e)=> setUser({
