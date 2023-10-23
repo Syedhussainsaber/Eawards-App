@@ -3,6 +3,7 @@ import MovieCard from '@/components/MovieCard'
 import { Pagination } from 'antd'
 import { useData } from '@/contexts/DataApi'
 import { useRouter } from 'next/router'
+import Footer from '@/components/Footer'
 
 const Celebratys = ({popularPeople}) => {
     const router = useRouter()
@@ -62,6 +63,7 @@ router.replace(`/movieWorld/celebratyProfile/${pageNumber}`)
 }}/> 
 </div>
 
+<Footer/>
 
 </div>
     </>

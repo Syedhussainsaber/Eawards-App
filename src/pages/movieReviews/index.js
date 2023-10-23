@@ -7,7 +7,7 @@ import MovieCard from '@/components/MovieCard'
 import { useData } from '@/contexts/DataApi'
 import moment from 'moment'
 import { useAuth } from '@/contexts/AuthAPI'
-
+import Footer from '@/components/Footer'
 const MovieReviews = ({nowPlaying}) => {
 
 const [comment, setComment] = useState('')
@@ -143,6 +143,7 @@ return <div style={{width:'200px',margin:"10px"}} key={index}>
 
 </div>
 
+<Footer/>
   </div>
   </>
   )

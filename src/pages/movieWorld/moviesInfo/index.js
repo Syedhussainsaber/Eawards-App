@@ -4,7 +4,7 @@ import { useData } from '@/contexts/DataApi'
 import MovieCard from '@/components/MovieCard'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
+import Footer from '@/components/Footer'
 const MovieInfo = ({popularMovies, movieDetails, castings}) => {
 
   const {handleActive} = useData()
@@ -82,7 +82,7 @@ popularMovies?.results.map((movie,id)=>{
   })
 }
 </div>
-
+<Footer/>
  </div>
  </>
   )

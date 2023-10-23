@@ -2,7 +2,7 @@ import React from 'react'
 import UserForm from '@/components/Form'
 import Link from 'next/link'
 import { useAuth } from '@/contexts/AuthAPI'
-
+import Footer from '@/components/Footer'
 
 const Register = () => {
   const {userData} = useAuth()
@@ -17,7 +17,7 @@ const Register = () => {
 <UserForm title={"Register"} phoneNumber={true} confirmPassword={true} />
 <p className='text-center py-2'>Already have an account ? <Link className='text-primary text-decoration-none' href={'/'}>Login</Link> </p> 
 </div>
-
+<Footer/>
 </div>
     </>
     

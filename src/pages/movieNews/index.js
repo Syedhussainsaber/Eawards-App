@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Dropdown, Button } from 'antd'
 import Link from 'next/link';
-
+import Footer from '@/components/Footer';
 
 import { useRouter } from 'next/router';
 import { useData } from '@/contexts/DataApi';
@@ -89,6 +89,7 @@ handleActive("news")
    
 
     </div>
+    <Footer/>
     </div>
   )
 }

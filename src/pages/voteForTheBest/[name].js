@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import UserForm from '@/components/Form'
 import ImageSelector from '@/components/ImageRadioGroup'
-
+import Footer from '@/components/Footer'
 import { useData } from '@/contexts/DataApi'
 import MovieCard from '@/components/MovieCard'
 
@@ -152,6 +152,7 @@ votes.length > 0  ?
   </>
 }
 
+<Footer/>
 </div>
     </>
   )

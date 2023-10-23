@@ -4,7 +4,7 @@ import { Pagination } from 'antd'
 import Slider from '@/components/Slider'
 import SectionCard from '@/components/SectionCard'
 import { useRouter } from 'next/router'
-
+import Footer from '@/components/Footer'
 import { useAuth } from '@/contexts/AuthAPI'
 
 import { useEffect } from 'react'
@@ -93,6 +93,9 @@ if(router.query.pages === '1'){
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossOrigin="anonymous"></script>
     </main>
+    <footer>
+    <Footer/>
+    </footer>
 
     </>
   )

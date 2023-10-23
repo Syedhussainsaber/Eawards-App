@@ -2,7 +2,7 @@ import React,{useEffect} from 'react'
 import { useRouter } from 'next/router'
 import { Dropdown, Button } from 'antd'
 import Link from 'next/link';
-
+import Footer from '@/components/Footer';
 import { useData } from '@/contexts/DataApi';
 
 
@@ -93,6 +93,7 @@ Hollywood
      
 
       </div>
+      <Footer/>
     </div>
   )
 }

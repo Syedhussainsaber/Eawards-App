@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import { useRouter } from 'next/router'
 import MovieCard from '@/components/MovieCard'
-
+import Footer from '@/components/Footer'
 import { Pagination } from 'antd'
 
 import { useData } from '@/contexts/DataApi'
@@ -41,7 +41,7 @@ useEffect(()=>{
 router.replace(`/movieWorld/upcomingReleases/${pageNumber}`)
 }}/>
 </div>
-
+<Footer/>
 </div>
     </>
        )

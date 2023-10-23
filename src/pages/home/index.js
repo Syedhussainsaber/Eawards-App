@@ -6,6 +6,7 @@ import Slider from '@/components/Slider'
 import SectionCard from '@/components/SectionCard'
 import { useRouter } from 'next/router'
 import { useAuth } from '@/contexts/AuthAPI'
+import Footer from '@/components/Footer'
 import { useEffect } from 'react'
 import {toast} from 'react-toastify'
 
@@ -78,7 +79,9 @@ router.replace(`/home/${pageNumber}`)
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossOrigin="anonymous"></script>
     </main>
-
+<footer>
+  <Footer/>
+</footer>
     </>
   )
 }

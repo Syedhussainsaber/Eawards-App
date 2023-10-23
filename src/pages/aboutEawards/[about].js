@@ -2,6 +2,7 @@
 import React,{useEffect, useState} from 'react'
 import { useRouter } from 'next/router'
 import { useData } from '@/contexts/DataApi'
+import Footer from '@/components/Footer'
 
 const About = () => {
 
@@ -88,7 +89,7 @@ setPromotion({...promotion,message:e.target.value})
 
 {/* </div> */}
 
-
+<Footer/>
 </div>
 </>
   )

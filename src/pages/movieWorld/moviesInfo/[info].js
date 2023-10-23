@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import MovieCard from '@/components/MovieCard'
 import Link from 'next/link'
 import { useData } from '@/contexts/DataApi'
+import Footer from '@/components/Footer'
 
 const Infos = ({popularMovies,movieDetails, castings}) => {
     const router= useRouter()
@@ -81,7 +82,7 @@ popularMovies?.results.map((movie,id)=>{
 }
 </div>
 
-
+<Footer/>
 </div>
 </>
   )

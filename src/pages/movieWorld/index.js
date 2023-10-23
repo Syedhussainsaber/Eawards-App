@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '@/components/Footer'
 
 const movieWorld = () => {
   return (
@@ -8,7 +9,7 @@ const movieWorld = () => {
 
 
 <h2 className='text-center'>Movie World</h2>
-
+<Footer/>
       </div>
 </>
     
