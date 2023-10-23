@@ -57,7 +57,7 @@ export const getServerSideProps = async(context)=>{
         if(query.upcoming <= parseInt('5') && !isNaN(parseInt(query.upcoming))){
 
 
-        const res = await fetch(`http://localhost:3000/api/upcomings/${query.upcoming}`)
+        const res = await fetch(`http://eawards.vercel.app/api/upcomings/${query.upcoming}`)
         const upcomingMovies = await res.json()
         return {
             props:{
@@ -66,7 +66,7 @@ export const getServerSideProps = async(context)=>{
           }
         }
         else{
-            const result = await fetch(`http://localhost:3000/api/upcomings/1`)
+            const result = await fetch(`http://eawards.vercel.app/api/upcomings/1`)
             const upcomingMovies = await result.json()
             return {
               props:{

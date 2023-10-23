@@ -53,7 +53,7 @@ export default UpComing
 
 export const getServerSideProps = async()=>{
       
-     const res = await fetch(`http://localhost:3000/api/upcomings/1`)
+     const res = await fetch(`http://eawards.vercel.app/api/upcomings/1`)
       const upcomingMovies = await res.json()
 
       return {

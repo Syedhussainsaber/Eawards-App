@@ -105,7 +105,7 @@ export const getServerSideProps = async(context)=>{
     try {
 if(!isNaN(Number(query.pages)) ||  typeof query.pages === 'number'){
 if(parseInt(query.pages) >0 && parseInt(query.pages) <=5){
-  const result = await fetch(`http://localhost:3000/api/movieApis/${context.query.pages}`)
+  const result = await fetch(`http://eawards.vercel.app/api/movieApis/${context.query.pages}`)
   const res = await result.json()
   const popularMovies = res.response
 const currentPage = parseInt(query.pages)
@@ -116,7 +116,7 @@ currentPage
     }
   }
 }
-  const result = await fetch(`http://localhost:3000/api/movieApis/1`)
+  const result = await fetch(`http://eawards.vercel.app/api/movieApis/1`)
   const res = await result.json()
   const popularMovies = res.response
   const currentPage = 1
@@ -128,7 +128,7 @@ currentPage
   }
 }
 else{
-  const result = await fetch(`http://localhost:3000/api/movieApis/1`,{ cache: 'force-cache' })
+  const result = await fetch(`http://eawards.vercel.app/api/movieApis/1`,{ cache: 'force-cache' })
   const res = await result.json()
   const popularMovies = res.response
   const currentPage=1

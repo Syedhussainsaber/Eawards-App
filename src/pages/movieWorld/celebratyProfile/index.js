@@ -75,7 +75,7 @@ export default Celebraty
 
 export const getServerSideProps = async (context)=>{
 try{
-const response = await fetch(`http://localhost:3000/api/popularPeople/1`,{
+const response = await fetch(`http://eawards.vercel.app/api/popularPeople/1`,{
     cache:"force-cache"
 })
 const popularPeople = await response.json()

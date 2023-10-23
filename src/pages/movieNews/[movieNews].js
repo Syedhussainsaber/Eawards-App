@@ -102,7 +102,7 @@ export default News
 
 export const getServerSideProps= async(context)=>{
     const {query} = context
-const response = await fetch(`http://localhost:3000/api/movieNews/${query.movieNews}`,{ cache: 'force-cache' })
+const response = await fetch(`http://eawards.vercel.app/api/movieNews/${query.movieNews}`,{ cache: 'force-cache' })
 const movieNews = await response.json()
 
 return {

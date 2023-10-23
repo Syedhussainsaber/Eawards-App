@@ -176,7 +176,7 @@ export const getServerSideProps = async(context)=>{
   //   .then(response => console.log(response))
   //   .catch(err => console.error(err));
 const {query} = context
-const res= await fetch("http://localhost:3000/api/starsData",{ cache: 'force-cache' })
+const res= await fetch("http://eawards.vercel.app/api/starsData",{ cache: 'force-cache' })
 const data = await res.json()
 return {
   props:{
@@ -187,7 +187,7 @@ return {
 
 
 // Woods.getInitialProps = async(ctx)=>{
-// const starsRes  = await fetch("http://localhost:3000/api/starsData")
+// const starsRes  = await fetch("http://eawards.vercel.app/api/starsData")
 // const starsData = await starsRes.json()
 // return {
 //   props:starsData
