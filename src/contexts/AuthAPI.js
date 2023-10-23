@@ -17,20 +17,20 @@ const { uploadUsers} = useData()
 
 
 
+
   useEffect(()=>{
 onAuthStateChanged(auth,async(user)=>{
 if(user){
  setUserData(user)
-  if(router.pathname === '/' || router.pathname==="/register"){
-    await router.replace("/home")
-  }
+ if(router.route ==='/'){
+  router.replace('/home')
+}
 }
 else if(router.pathname==='/'){
   setUserData(null)
 }
 else{
   setUserData(null)
- await router.replace("/register")
 }
 })
   },[])

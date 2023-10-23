@@ -42,6 +42,8 @@ const sliderImgs={
   userData ? <div className='w-100 text-end px-2'><p className='text-dark m-auto fs-6 py-1'>Welcome {userData.diplayName ? userData.diplayName: userData.email.slice(0,userData.email.indexOf("@"))}</p></div>:<>
   </>
 }
+
+
 <Slider sliderImgs={sliderImgs}/>
        <h1 className='my-4'>Eawards App</h1>
 

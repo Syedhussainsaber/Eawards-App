@@ -4,10 +4,13 @@ import Link from 'next/link'
 // import Image from 'next/image'
 import { useAuth } from '@/contexts/AuthAPI'
 import { useData } from '@/contexts/DataApi'
+import {useRouter} from 'next/router'
+
 
 const Navbar = () => {
   const {userData, logoutFun} = useAuth()
 const {active, handleActive} = useData()
+const router = useRouter()
 
 const abouts = [
   {
@@ -271,11 +274,13 @@ About Eawards </a>
 
         <form className="d-flex">
           <input className="form-control me-2 my-2 my-lg-0" type="search" placeholder="Search" aria-label="Search"/>
-          <button className="btn btn-outline-success p-lg-2" type="submit">Search</button>
+          <button className="btn btn-outline-success p-lg-1" type="submit">Search</button>
           {
             userData ? <>
              <button className="btn btn-danger mx-4" type='button' onClick={logoutFun}>Logout</button></> :
-            <></>
+            <> <button className="btn text-white mx-4" style={{backgroundColor:'black'}} type='button' onClick={()=>{
+router.push("/register")
+            }}>Register</button></>
           }
         </form>
       </div>
