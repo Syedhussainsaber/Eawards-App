@@ -1,6 +1,4 @@
 import React, {useEffect} from 'react'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 import MovieCard from '@/components/MovieCard'
 import { Pagination } from 'antd'
 import { useData } from '@/contexts/DataApi'
@@ -18,7 +16,6 @@ const {handleActive} = useData()
         
   return (
     <>
-    <Navbar/>
     <div style={{position:'relative', top:'160px'}}>
     <h2 className='text-center my-4 fw-bold'>Celebraty Profiles</h2>
     <div className="w-100 my-3 d-flex flex-column justify-content-center align-items-center gap-2">
@@ -65,7 +62,7 @@ router.replace(`/movieWorld/celebratyProfile/${pageNumber}`)
 }}/> 
 </div>
 
-<Footer/>
+
 </div>
     </>
   )

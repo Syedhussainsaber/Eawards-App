@@ -1,5 +1,4 @@
-import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
+
 import React, {useEffect} from 'react'
 import { useRouter } from 'next/router'
 import { useData } from '@/contexts/DataApi'
@@ -20,11 +19,9 @@ if(router.asPath.includes("awardWinners")){
 
   return (
   <>
-  <Navbar/>
 <div style={{position:'relative', top:'160px'}}>
 <h2>{router.query.year} Winners</h2>
 </div>
-  <Footer/>
   </>
   )
 }

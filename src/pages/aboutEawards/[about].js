@@ -1,5 +1,4 @@
-import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
+
 import React,{useEffect, useState} from 'react'
 import { useRouter } from 'next/router'
 import { useData } from '@/contexts/DataApi'
@@ -19,7 +18,7 @@ handleActive("about")
 
 return (
 <>
-<Navbar/>
+
 <div  style={{position:'relative', top:'160px'}}>
 <h2 className='text-center py-3' >{router.query.about}</h2>
 {/* <div className='w-100 d-flex justify-content-center'> */}
@@ -90,7 +89,6 @@ setPromotion({...promotion,message:e.target.value})
 {/* </div> */}
 
 
-<Footer/>
 </div>
 </>
   )

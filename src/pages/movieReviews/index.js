@@ -1,5 +1,4 @@
-import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
+
 import React, { useEffect, useState } from 'react'
 import Card from '@/components/Card'
 import {AiFillStar} from  'react-icons/ai'
@@ -51,7 +50,7 @@ handleActive('review')
 
   return (
   <>
-<Navbar/>
+
 <div style={{position:'relative', top:'160px'}}>
 
 
@@ -143,7 +142,7 @@ return <div style={{width:'200px',margin:"10px"}} key={index}>
 
 
 </div>
-  <Footer/>
+
   </div>
   </>
   )

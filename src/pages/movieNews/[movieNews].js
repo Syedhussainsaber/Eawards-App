@@ -2,9 +2,9 @@ import React,{useEffect} from 'react'
 import { useRouter } from 'next/router'
 import { Dropdown, Button } from 'antd'
 import Link from 'next/link';
-import Footer from '@/components/Footer';
+
 import { useData } from '@/contexts/DataApi';
-import Navbar from '@/components/Navbar';
+
 
 const News = ({movieNews}) => {
     const router = useRouter()
@@ -62,7 +62,7 @@ Hollywood
 
   return (
     <div className='w-100'>
-        <Navbar/>
+
 
 
    <div style={{position:'relative', top:"160px"}}>
@@ -91,7 +91,7 @@ Hollywood
         })
     }
      
-      <Footer/>
+
       </div>
     </div>
   )

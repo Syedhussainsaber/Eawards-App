@@ -9,7 +9,7 @@ import { DataApi } from '@/contexts/DataApi';
 import { ToastContainer, toast } from 'react-toastify';
 
 import "react-toastify/dist/ReactToastify.css";
-
+import Navbar from '@/components/Navbar'
 
 export default function App({ Component, pageProps }) {
   return (
@@ -23,13 +23,14 @@ export default function App({ Component, pageProps }) {
 <AiFillTwitterSquare size={30} color='white' cursor={'pointer'}/>
 {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script> */}
         </div> 
-  
+<Navbar/>
 
         <ToastContainer/>  
          <Component {...pageProps} />
-    
-   </AuthAPI>
+
+   </AuthAPI> 
    </DataApi>
+
   </>
   )
 }

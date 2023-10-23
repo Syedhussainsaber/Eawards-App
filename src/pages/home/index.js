@@ -5,11 +5,10 @@ import { Pagination } from 'antd'
 import Slider from '@/components/Slider'
 import SectionCard from '@/components/SectionCard'
 import { useRouter } from 'next/router'
-import Navbar from '@/components/Navbar'
 import { useAuth } from '@/contexts/AuthAPI'
 import { useEffect } from 'react'
 import {toast} from 'react-toastify'
-import Footer from '@/components/Footer'
+
 import TextAnimation from '@/components/TextAnimation'
 
 
@@ -35,7 +34,7 @@ const sliderImgs={
       </Head>
       <main>
 
-<Navbar/>
+
 <TextAnimation text1={'⚫️ Eawards - a movie review rating application'} text2={'⚫️ Rate the latest movies'} text3={'⚫️ Vote for yours favourite stars'} />
 
 {
@@ -79,7 +78,7 @@ router.replace(`/home/${pageNumber}`)
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossOrigin="anonymous"></script>
     </main>
-    <Footer/>
+
     </>
   )
 }

@@ -5,12 +5,12 @@ import ImageSelector from '@/components/ImageRadioGroup'
 
 import { useData } from '@/contexts/DataApi'
 import MovieCard from '@/components/MovieCard'
-import Footer from '@/components/Footer'
+
 import {toast} from "react-toastify"
 import { useAuth } from '@/contexts/AuthAPI'
 import jsPDF from 'jspdf';
 import axios from 'axios';
-import Navbar from '@/components/Navbar'
+
 
 const Woods = ({starsData}) => {
 
@@ -116,8 +116,6 @@ new Image()
 
 return (
     <>
-
-<Navbar/>
 <div style={{position:'relative', top:'160px'}}>
 <h1 className='text-center py-4 pb-3 fw-bold fs-1 text-success'>Vote For Your Best</h1>
 <h2 className='w-50 text-center m-auto fs-2 pt-2 pb-4'>{starsData['title']}</h2>
@@ -154,7 +152,6 @@ votes.length > 0  ?
   </>
 }
 
-<Footer/>
 </div>
     </>
   )

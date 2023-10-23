@@ -1,15 +1,13 @@
 import React from 'react'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 
 const voteForBest = () => {
   return (
     <>
-<Navbar/>
+
 <div className='p-2' style={{position:'relative', top:'160px'}}>
       <h1 className='text-center text-success'>Vote For the Best</h1>
 
-    <Footer/>
+
     </div>
     </>
    

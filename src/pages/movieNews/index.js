@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { Dropdown, Button } from 'antd'
 import Link from 'next/link';
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
+
+
 import { useRouter } from 'next/router';
 import { useData } from '@/contexts/DataApi';
 
@@ -59,7 +59,7 @@ handleActive("news")
 
   return (
     <div className='w-100'>
-        <Navbar/>
+
         <div style={{position:'relative', top:"160px"}}>
 
       
@@ -87,7 +87,7 @@ handleActive("news")
         })
     }
    
-    <Footer/>
+
     </div>
     </div>
   )

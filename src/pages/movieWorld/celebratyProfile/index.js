@@ -1,5 +1,4 @@
-import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
+
 import React, { useEffect } from 'react'
 import MovieCard from '@/components/MovieCard'
 import {Pagination} from "antd"
@@ -19,7 +18,7 @@ if(router.asPath.includes("movieWorld"))
 
   return (
     <>
-    <Navbar/>
+
     <div  style={{position:'relative', top:'160px'}}>
     <h2 className='text-center my-4 fw-bold'>Celebraty Profiles</h2>
     <div className="w-100 my-3 d-flex flex-column justify-content-center align-items-center gap-2">
@@ -63,7 +62,6 @@ router.replace(`/movieWorld/celebratyProfile/${pageNumber}`)
 }}/> 
 </div>
 
-<Footer/>
 </div>
     </>
 

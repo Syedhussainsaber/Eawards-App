@@ -1,5 +1,4 @@
-import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
+
 import React, { useEffect, useState } from 'react'
 import { useData } from '@/contexts/DataApi'
 import MovieCard from '@/components/MovieCard'
@@ -21,7 +20,7 @@ const MovieInfo = ({popularMovies, movieDetails, castings}) => {
 
   return (
  <>
- <Navbar/>
+
  <div style={{position:'relative', top:'160px'}}>
  <h2 className='text-center py-2 mt-2'>Movie Info</h2>
 
@@ -84,7 +83,6 @@ popularMovies?.results.map((movie,id)=>{
 }
 </div>
 
- <Footer/>
  </div>
  </>
   )

@@ -1,9 +1,9 @@
 import React,{useEffect} from 'react'
 import { useRouter } from 'next/router'
 import MovieCard from '@/components/MovieCard'
-import Navbar from '@/components/Navbar'
+
 import { Pagination } from 'antd'
-import Footer from '@/components/Footer'
+
 import { useData } from '@/contexts/DataApi'
 
 
@@ -22,7 +22,7 @@ useEffect(()=>{
 
        return (
         <>
-        <Navbar/>
+
         <div className='w-100' style={{position:'relative', top:'160px'}}>
       {console.log(upcomingMovies)}
       <h2 className='text-center my-4'>Upcoming Movies</h2>
@@ -41,7 +41,7 @@ useEffect(()=>{
 router.replace(`/movieWorld/upcomingReleases/${pageNumber}`)
 }}/>
 </div>
-<Footer/>
+
 </div>
     </>
        )
