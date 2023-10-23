@@ -86,11 +86,10 @@ handleActive("news")
  </div> 
         })
     }
-   
+     <Footer/>
+    </div>
+    </div>
 
-    </div>
-    <Footer/>
-    </div>
   )
 }
 

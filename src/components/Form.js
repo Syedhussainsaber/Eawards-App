@@ -34,20 +34,26 @@ loginFun(user.email,user.password)
 }
 
 else if (title==='Submit'){
+if(userData){
   if(userData.email === user.email ){
- handleVotes({
-      userEmail: user.email,
-      phoneNumber:user.phoneNumber,
-      industry:industry,
-      bestActor:bestActor,
-      bestDirector:bestDirector,
-      bestActress: bestActress
-      })
-toast.success("Thank You For Submitting!")      
-  }
-else{
-toast.error("Email Not Matched!")
+    handleVotes({
+         userEmail: user.email,
+         phoneNumber:user.phoneNumber,
+         industry:industry,
+         bestActor:bestActor,
+         bestDirector:bestDirector,
+         bestActress: bestActress
+         })
+   toast.success("Thank You For Submitting!")      
+     }
+   else{
+   toast.error("Email Not Matched!")
+   }
 }
+else{
+  toast.error("You need to register!")
+}
+  
 
 }
 

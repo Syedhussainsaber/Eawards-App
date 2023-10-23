@@ -91,9 +91,9 @@ Hollywood
         })
     }
      
-
+     <Footer/>
       </div>
-      <Footer/>
+
     </div>
   )
 }

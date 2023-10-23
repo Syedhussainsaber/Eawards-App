@@ -116,7 +116,7 @@ new Image()
 
 return (
     <>
-<div style={{position:'relative', top:'160px'}}>
+<div style={{position:'relative', top:'170px'}}>
 <h1 className='text-center py-4 pb-3 fw-bold fs-1 text-success'>Vote For Your Best</h1>
 <h2 className='w-50 text-center m-auto fs-2 pt-2 pb-4'>{starsData['title']}</h2>
 {
@@ -139,14 +139,14 @@ votes.length > 0  ?
 <button className='btn btn-dark' onClick={generatePdf}>Share</button>
 </div>
 </>: <>
-<h2 className='w-50 m-auto py-2 fs-2 mt-4 mb-2'>Select Best Actor</h2>
+<h2 className='col-10 text-center text-sm-start col-sm-6 m-auto py-2 fs-2 mt-4 mb-2'>Select Best Actor</h2>
 
 <ImageSelector images={actors} name='actor' />
 
-<h2 className='w-50 m-auto py-2 fs-2 mt-4 mb-2'>Select Best Director</h2>
+<h2 className='col-10 text-center text-sm-start col-sm-6 m-auto py-2 fs-2 mt-4 mb-2'>Select Best Director</h2>
 <ImageSelector images={directors} name={'director'} />
 
-<h2 className='w-50 m-auto py-2 fs-2 mt-4 mb-2'>Select Best Actress</h2>
+<h2 className='col-10 text-center text-sm-start col-sm-6 m-auto py-2 fs-2 mt-4 mb-2'>Select Best Actress</h2>
 <ImageSelector images={actresses} name={'actress'} />
 <UserForm title={"Submit"} phoneNumber={true} confirmPassword={false} industry={router.query.name} />
   </>

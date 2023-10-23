@@ -13,7 +13,7 @@ const handleImageClick = (image) => {
   };
 
   return (
-    <div className="image-selector w-75 m-auto">
+    <div className="image-selector d-flex flex-column flex-sm-row col-12 col-sm-10 m-auto">
       {images.map((image, index) => (
         <div
           key={index}
