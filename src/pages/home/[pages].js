@@ -105,11 +105,12 @@ if(router.query.pages === '1'){
 export const getStaticPaths= async()=>{
   try{
 
-    const response = await fetch(`http://localhost:3000/api/movieApis/1`)
+    const response = await fetch(`https://eawards.vercel.app/api/movieApis/1`)
     const popularMovies = await response.json()
-    const moviePages = Array.from({ length: popularMovies?.total_pages }, (_, index) => index + 1);
+    const moviePages = Array.from({ length: popularMovies.total_pages }, (_, index) => index + 1);
 
-const paths  = moviePages?.map((page,id)=>{
+    console.log(moviePages, "moviePages")
+const paths  = moviePages.map((page,id)=>{
 return {
 params:{
 pages:`${page}`
@@ -117,7 +118,7 @@ pages:`${page}`
 }
 })
     return {
-      paths,
+      paths : paths,
       fallback:false
     }
   }
@@ -130,7 +131,7 @@ pages:`${page}`
 
 export const getStaticProps = async({params})=>{
   try {
-const result = await fetch(`http://localhost:3000/api/movieApis/${params.pages}`)
+const result = await fetch(`https://eawards.vercel.app/api/movieApis/${params.pages}`)
 const res = await result.json()
 const popularMovies = res.response
 const currentPage =params.pages

@@ -53,7 +53,7 @@ export default UpcomingMovies
 
 export const getStaticPaths = async()=>{
 try{
-  const response = await fetch(`http://localhost:3000/api/upcomings/1`,{
+  const response = await fetch(`https://eawards.vercel.app/api/upcomings/1`,{
             cache:"force-cache"
         })
         const upcomings = await response.json()
@@ -78,7 +78,7 @@ console.log(err)
 
 export const getStaticProps = async({params})=>{
   try{
-    const res = await fetch(`http://localhost:3000/api/upcomings/${params.upcoming}`)
+    const res = await fetch(`https://eawards.vercel.app/api/upcomings/${params.upcoming}`)
     const upcomingMovies = await res.json()
     return {
         props:{

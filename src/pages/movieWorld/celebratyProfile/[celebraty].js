@@ -75,7 +75,7 @@ export default Celebratys
 
 export const getStaticPaths = async ()=>{
     try{
-        const response = await fetch(`http://localhost:3000/api/popularPeople/1`,{
+        const response = await fetch(`https://eawards.vercel.app/api/popularPeople/1`,{
             cache:"force-cache"
         })
         const popularPeople = await response.json()
@@ -100,7 +100,7 @@ console.log(err)
 
 export const getStaticProps = async ({params})=>{
     try{
-    const response = await fetch(`http://localhost:3000/api/popularPeople/${params.celebraty}`,{
+    const response = await fetch(`https://eawards.vercel.app/api/popularPeople/${params.celebraty}`,{
         cache:"force-cache"
     })
     const popularPeople = await response.json()

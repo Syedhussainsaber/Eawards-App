@@ -184,7 +184,7 @@ export default Woods
 
 
 // Woods.getInitialProps = async(ctx)=>{
-// const starsRes  = await fetch("http://localhost:3000/api/starsData")
+// const starsRes  = await fetch("http://eawards.vercel.app/api/starsData")
 // const starsData = await starsRes.json()
 // return {
 //   props:starsData
@@ -194,7 +194,7 @@ export default Woods
 export const getStaticPaths = async()=>{
 try{
 // const paths = [{params : {name:""}}]
-const res= await fetch("http://localhost:3000/api/starsData",{ cache: 'force-cache' })
+const res= await fetch("https://eawards.vercel.app/api/starsData",{ cache: 'force-cache' })
 const data = await res.json()
 const paths = [{params:{ name:`panIndia`}}, {params:{name:`bollywood`}}, {params:{name:`tollywood`}}, {params:{name:`hollywood`}}, {params:{name:`kollywood`}}, {params:{name:`kollywood`}}, {params:{name:`mollywood`}}, {params:{name:`sandalwood`}}]
 
@@ -210,7 +210,7 @@ console.log(err)
 
 export const getStaticProps = async({params})=>{
   try{
-    const res= await fetch("http://localhost:3000/api/starsData",{ cache: 'force-cache' })
+    const res= await fetch("https://eawards.vercel.app/api/starsData",{ cache: 'force-cache' })
     const data = await res.json()
 
     return {
