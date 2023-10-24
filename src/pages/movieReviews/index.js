@@ -151,9 +151,9 @@ return <div style={{width:'200px',margin:"10px"}} key={index}>
 
 export default MovieReviews
 
-export const getServerSideProps = async(context)=>{
+export const getStaticProps = async(context)=>{
 try{
-const res = await fetch(`http:/eawards.vercel.app/api/movieApis/1`)
+const res = await fetch(`http:/localhost:3000/api/movieApis/1`)
 const data= await res.json()
 const nowPlaying = data.response
 
@@ -166,5 +166,4 @@ return {
 catch(err){
 console.log(err)
 }
-
 }

@@ -37,7 +37,7 @@ useEffect(()=>{
 </div>
 
 <div className="pagination w-100 my-2">
-<Pagination className='my-4 mx-auto' defaultCurrent={router?.query?.upcoming <=5 ? router?.query?.upcoming : 1} total={50} onChange={(pageNumber,pageSize)=>{
+<Pagination className='my-4 mx-auto' defaultCurrent={upcomingMovies.page} pageSize={20}  total={upcomingMovies.total_results} onChange={(pageNumber,pageSize)=>{
 router.replace(`/movieWorld/upcomingReleases/${pageNumber}`)
 }}/>
 </div>
@@ -50,38 +50,43 @@ router.replace(`/movieWorld/upcomingReleases/${pageNumber}`)
 
 export default UpcomingMovies
 
-export const getServerSideProps = async(context)=>{
-    const {query} = context
-      
-      try{
-        if(query.upcoming <= parseInt('5') && !isNaN(parseInt(query.upcoming))){
 
-
-        const res = await fetch(`http://eawards.vercel.app/api/upcomings/${query.upcoming}`)
-        const upcomingMovies = await res.json()
-        return {
-            props:{
-                upcomingMovies
-            }
-          }
-        }
-        else{
-            const result = await fetch(`http://eawards.vercel.app/api/upcomings/1`)
-            const upcomingMovies = await result.json()
-            return {
-              props:{
-            upcomingMovies,
-              }
-            }
-        }
-      }
-      catch(err){
+export const getStaticPaths = async()=>{
+try{
+  const response = await fetch(`http://localhost:3000/api/upcomings/1`,{
+            cache:"force-cache"
+        })
+        const upcomings = await response.json()
+        const upcomingsPages = Array.from({ length: upcomings.total_pages }, (_, index) => index + 1);
+const paths  = upcomingsPages.map((page,id)=>{
+return {
+    params:{
+upcoming:`${page}`
+    }
+}
+})
+return {
+    paths,
+    fallback:false
+}
+}
+catch(err){
 console.log(err)
+}
+}
+
+
+export const getStaticProps = async({params})=>{
+  try{
+    const res = await fetch(`http://localhost:3000/api/upcomings/${params.upcoming}`)
+    const upcomingMovies = await res.json()
+    return {
+        props:{
+            upcomingMovies
+        }
       }
-     
-
-     
-
-
-
+  }
+  catch(err){
+  console.log(err)
+  }
 }

@@ -58,7 +58,7 @@ return <>
  
 
 <div className="w-100 d-flex justify-content-center align-items-center py-2 mb-4">
-<Pagination className='m-2 mb-8' defaultCurrent={router.query.celebraty} showSizeChanger showQuickJumpe  total={5000} onChange={(pageNumber,pageSize)=>{
+<Pagination className='m-2 mb-8' defaultCurrent={router.query.celebraty} showSizeChanger showQuickJumpe  total={popularPeople.total_results} onChange={(pageNumber,pageSize)=>{
 router.replace(`/movieWorld/celebratyProfile/${pageNumber}`)
 }}/> 
 </div>
@@ -73,10 +73,34 @@ router.replace(`/movieWorld/celebratyProfile/${pageNumber}`)
 export default Celebratys
 
 
-export const getServerSideProps = async (context)=>{
-    const {query}= context
+export const getStaticPaths = async ()=>{
     try{
-    const response = await fetch(`http://eawards.vercel.app/api/popularPeople/${query.celebraty}`,{
+        const response = await fetch(`http://localhost:3000/api/popularPeople/1`,{
+            cache:"force-cache"
+        })
+        const popularPeople = await response.json()
+        const celebratyPages = Array.from({ length: popularPeople.total_pages }, (_, index) => index + 1);
+const paths  = celebratyPages.map((page,id)=>{
+return {
+    params:{
+    celebraty:`${page}`
+    }
+}
+})
+return {
+    paths,
+    fallback:false
+}
+    }
+    catch(err){
+console.log(err)
+    }
+}
+
+
+export const getStaticProps = async ({params})=>{
+    try{
+    const response = await fetch(`http://localhost:3000/api/popularPeople/${params.celebraty}`,{
         cache:"force-cache"
     })
     const popularPeople = await response.json()

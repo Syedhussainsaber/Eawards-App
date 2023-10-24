@@ -92,17 +92,10 @@ export default Infos
 
 
 export const getServerSideProps = async(context)=>{
-
-    try{
-      const result = await fetch(`http://eawards.vercel.app/api/movieApis/1`,{ cache: 'force-cache' })
-      const res = await result.json()
-      const popularMovies = res.response
-    
-      
-     const movieRes = await fetch(`http://eawards.vercel.app/api/movieDetails/${context.query.info}`)
-       const movieDetails = await movieRes.json()
-    
-    const castsRes = await fetch(`http://eawards.vercel.app/api/movieCastings/${context.query.info}`)
+    try{    
+const movieRes = await fetch(`http://localhost:3000/api/movieDetails/${context.query.info}`)
+const movieDetails = await movieRes.json()
+    const castsRes = await fetch(`http://localhost:3000/api/movieCastings/${context.query.info}`)
     const castings = await castsRes.json()
     console.log(castings)
       return{
@@ -117,3 +110,29 @@ export const getServerSideProps = async(context)=>{
     console.log(err)
     }
     }
+
+
+// export const getStaticPaths = async()=>{
+// try{
+
+// }
+// catch(err){
+// console.log(err)
+// }
+
+// }
+
+
+// export const getStaticProps = async()=>{
+//   try{
+//     const result = await fetch(`http://localhost:3000/api/movieApis/1`,{ cache: 'force-cache' })
+//     const res = await result.json()
+//     const popularMovies = res.response
+  
+//   }
+//   catch(err){
+//   console.log(err)
+//   }
+// }
+
+

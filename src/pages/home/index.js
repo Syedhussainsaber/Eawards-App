@@ -72,7 +72,7 @@ const sliderImgs={
 }
 </div>
 
-<Pagination className='my-4 mb-8' defaultCurrent={1} current={currentPage}  total={50} onChange={(pageNumber,pageSize)=>{
+<Pagination className='my-4 mb-8' defaultCurrent={1} pageSize={20} current={currentPage} total={popularMovies?.total_results-1} onChange={(pageNumber,pageSize)=>{
 router.replace(`/home/${pageNumber}`)
 }}/> 
 
@@ -87,33 +87,32 @@ router.replace(`/home/${pageNumber}`)
 }
 
 
+export const getStaticProps = async (context)=>{
+  try{
+    const result = await fetch(`http://localhost:3000/api/movieApis/1`,{ cache: 'force-cache' })
+    const res = await result.json()
+    const popularMovies = res.response
 
-export const getServerSideProps = async(context)=>{
-    try {
-  const result = await fetch(`http://eawards.vercel.app/api/movieApis/1`,{ cache: 'force-cache' })
-  const res = await result.json()
-  const popularMovies = res.response
+    const newsRes = await fetch(`http://localhost:3000/api/movieNews/${'bollywood'}`,{ cache: 'force-cache' })
+    const news = await newsRes.json()
+    
+    const upcomingsRes= await fetch("http://localhost:3000/api/upcomings/1",{
+      cache: 'force-cache' 
+    })
+    const upcomings = await  upcomingsRes.json()
+    const currentPage = 1
 
-const newsRes = await fetch(`http://eawards.vercel.app/api/movieNews/${'bollywood'}`,{ cache: 'force-cache' })
-const news = await newsRes.json()
-
-const upcomingsRes= await fetch("http://eawards.vercel.app/api/upcomings/1",{
-  cache: 'force-cache' 
-})
-const upcomings = await  upcomingsRes.json()
-
-const currentPage = 1
-
-  return {
-    props:{
+return {
+props:{
   popularMovies,
-currentPage, 
-news,
-upcomings
-    }
-  }
-} catch (err) {
-console.log(err)
-    }
+currentPage,
+  news,
+  upcomings
+}
+}
 
+  }
+  catch(err){
+  console.log(err)
+  }
 }

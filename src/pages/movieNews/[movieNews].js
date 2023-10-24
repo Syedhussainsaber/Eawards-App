@@ -101,14 +101,35 @@ Hollywood
 export default News
 
 
-export const getServerSideProps= async(context)=>{
-    const {query} = context
-const response = await fetch(`http://eawards.vercel.app/api/movieNews/${query.movieNews}`,{ cache: 'force-cache' })
-const movieNews = await response.json()
 
-return {
-    props:{
-        movieNews
+export const getStaticPaths = async() =>{
+
+  try{
+    const paths = [{ params:{movieNews:"bollywood"}},{params:{movieNews:"tollywood"}},{params:{movieNews:"hollywood"}},{params:{movieNews:"kollywood"}},{params:{movieNews:"mollywood"}},{params:{movieNews:"sandalwood"}},]
+
+    return {
+    paths,
+    fallback:false
     }
+  }
+  catch(err){
+console.log(err)
+  }
+
+}
+
+export const getStaticProps = async({params})=>{
+try{
+  const response = await fetch(`http://localhost:3000/api/movieNews/${params.movieNews}`,{ cache: 'force-cache' })
+  const movieNews = await response.json()
+
+  return {
+      props:{
+          movieNews
+      }
+  }
+}
+catch(err){
+console.log(err)
 }
 }

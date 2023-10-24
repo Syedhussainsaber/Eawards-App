@@ -38,7 +38,7 @@ useEffect(()=>{
 </div>
   
     <div className="pagination w-100 my-2">
-    <Pagination className='my-4 m-auto' defaultCurrent={1} total={50} onChange={(pageNumber,pageSize)=>{
+    <Pagination className='my-4 m-auto' defaultCurrent={upcomingMovies.page} pageSize={20} total={upcomingMovies.total_results} onChange={(pageNumber,pageSize)=>{
 router.replace(`/movieWorld/upcomingReleases/${pageNumber}`)
 }}/>
     </div>
@@ -51,9 +51,9 @@ router.replace(`/movieWorld/upcomingReleases/${pageNumber}`)
 export default UpComing
 
 
-export const getServerSideProps = async()=>{
+export const getStaticProps = async()=>{
       
-     const res = await fetch(`http://eawards.vercel.app/api/upcomings/1`)
+     const res = await fetch(`http://localhost:3000/api/upcomings/1`)
       const upcomingMovies = await res.json()
 
       return {

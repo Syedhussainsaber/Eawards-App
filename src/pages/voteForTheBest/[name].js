@@ -160,36 +160,68 @@ votes.length > 0  ?
 
 export default Woods
 
-export const getServerSideProps = async(context)=>{
-  // const options = {
-  //   method: 'GET',
-  //   headers: {
-  //     accept: 'application/json',
-  //     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZGEzYzFhYmUzNDZhY2FiMTdkYzQzODgwZTEzMjI1YyIsInN1YiI6IjY0ZjYxMWE2ZTBjYTdmMDEwZGU2MGIxMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tlUyPRuWTZ9S9MMYEhWnj7OmNOwiLjDtgYzqbvjhvVY'
-  //   }
-  // };
+// export const getServerSideProps = async(context)=>{
+//   // const options = {
+//   //   method: 'GET',
+//   //   headers: {
+//   //     accept: 'application/json',
+//   //     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZGEzYzFhYmUzNDZhY2FiMTdkYzQzODgwZTEzMjI1YyIsInN1YiI6IjY0ZjYxMWE2ZTBjYTdmMDEwZGU2MGIxMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tlUyPRuWTZ9S9MMYEhWnj7OmNOwiLjDtgYzqbvjhvVY'
+//   //   }
+//   // };
   
-  // fetch(`https://api.themoviedb.org/3/search/person?query=${'salman'}?include_adult=false&language=en-US&page=1`, options)
-  //   .then(response => response.json())
-  //   .then(response => console.log(response))
-  //   .catch(err => console.error(err));
-const {query} = context
-const res= await fetch("http://eawards.vercel.app/api/starsData",{ cache: 'force-cache' })
-const data = await res.json()
-return {
-  props:{
-   starsData:data[query.name]
-  }
-}
-}
+//   // fetch(`https://api.themoviedb.org/3/search/person?query=${'salman'}?include_adult=false&language=en-US&page=1`, options)
+//   //   .then(response => response.json())
+//   //   .then(response => console.log(response))
+//   //   .catch(err => console.error(err));
+// const {query} = context
+
+// return {
+//   props:{
+//    starsData:data[query.name]
+//   }
+// }
+// }
 
 
 // Woods.getInitialProps = async(ctx)=>{
-// const starsRes  = await fetch("http://eawards.vercel.app/api/starsData")
+// const starsRes  = await fetch("http://localhost:3000/api/starsData")
 // const starsData = await starsRes.json()
 // return {
 //   props:starsData
 // }
 // }
+
+export const getStaticPaths = async()=>{
+try{
+// const paths = [{params : {name:""}}]
+const res= await fetch("http://localhost:3000/api/starsData",{ cache: 'force-cache' })
+const data = await res.json()
+const paths = [{params:{ name:`panIndia`}}, {params:{name:`bollywood`}}, {params:{name:`tollywood`}}, {params:{name:`hollywood`}}, {params:{name:`kollywood`}}, {params:{name:`kollywood`}}, {params:{name:`mollywood`}}, {params:{name:`sandalwood`}}]
+
+return {
+  paths,
+  fallback:false
+}
+}
+catch(err){
+console.log(err)
+}
+}
+
+export const getStaticProps = async({params})=>{
+  try{
+    const res= await fetch("http://localhost:3000/api/starsData",{ cache: 'force-cache' })
+    const data = await res.json()
+
+    return {
+      props:{
+       starsData:data[params.name]
+      }
+    }
+  }
+  catch(err){
+  console.log(err)
+  }
+  }
 
 

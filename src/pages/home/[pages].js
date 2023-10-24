@@ -71,17 +71,17 @@ if(router.query.pages === '1'){
 <div className="movies w-75">
 
 {
-  popularMovies?.results.map((item,index)=>{
+  popularMovies?.results?.map((item,index)=>{
     if(item.poster_path){
       return <MovieCard img={"https://image.tmdb.org/t/p/w500/"+item.poster_path} id={item.id} title={item.title} description={item.overview} key={index} type={"movie"} />
     }
 {console.log(popularMovies)}
-
   })
 }
 </div>
 
-<Pagination className='my-4 mb-8' defaultCurrent={1} current={currentPage}  total={50} onChange={(pageNumber,pageSize)=>{
+
+<Pagination className='my-4 mb-8' defaultCurrent={1} pageSize={20} current={parseInt(currentPage)} total={popularMovies?.total_results-1} onChange={(pageNumber,pageSize)=>{
   if(pageNumber===1){
     router.replace('/home')
   }
@@ -102,48 +102,48 @@ if(router.query.pages === '1'){
 }
 
 
+export const getStaticPaths= async()=>{
+  try{
 
-export const getServerSideProps = async(context)=>{
-  const {query} = context
-    try {
-if(!isNaN(Number(query.pages)) ||  typeof query.pages === 'number'){
-if(parseInt(query.pages) >0 && parseInt(query.pages) <=5){
-  const result = await fetch(`http://eawards.vercel.app/api/movieApis/${context.query.pages}`)
-  const res = await result.json()
-  const popularMovies = res.response
-const currentPage = parseInt(query.pages)
-  return {
-    props:{
-  popularMovies,
+    const response = await fetch(`http://localhost:3000/api/movieApis/1`)
+    const popularMovies = await response.json()
+    const moviePages = Array.from({ length: popularMovies?.total_pages }, (_, index) => index + 1);
+
+const paths  = moviePages?.map((page,id)=>{
+return {
+params:{
+pages:`${page}`
+}
+}
+})
+    return {
+      paths,
+      fallback:false
+    }
+  }
+  catch(err){
+  console.log(err)
+  }
+  }
+
+
+
+export const getStaticProps = async({params})=>{
+  try {
+const result = await fetch(`http://localhost:3000/api/movieApis/${params.pages}`)
+const res = await result.json()
+const popularMovies = res.response
+const currentPage =params.pages
+return {
+  props:{
+popularMovies,
 currentPage
-    }
   }
 }
-  const result = await fetch(`http://eawards.vercel.app/api/movieApis/1`)
-  const res = await result.json()
-  const popularMovies = res.response
-  const currentPage = 1
-  return {
-    props:{
-  popularMovies,
-  currentPage
-    }
-  }
-}
-else{
-  const result = await fetch(`http://eawards.vercel.app/api/movieApis/1`,{ cache: 'force-cache' })
-  const res = await result.json()
-  const popularMovies = res.response
-  const currentPage=1
-  return {
-    props:{
-  popularMovies,
-  currentPage
-    }
-  }
-}
-    } catch (err) {
+
+} catch (err) {
 console.log(err)
-    }
+  }
 
 }
+
