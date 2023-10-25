@@ -53,7 +53,7 @@ if(router.query.pages === '1'){
   </>
 }
 <Slider sliderImgs={sliderImgs}/>
-       <h1 className='my-4'>Eawards App</h1>
+       <h1 className='my-5'>Eawards App</h1>
 
 
 <div className="normal-cards">
@@ -81,7 +81,7 @@ if(router.query.pages === '1'){
 </div>
 
 
-<Pagination className='my-4 mb-8' defaultCurrent={1} pageSize={20} current={parseInt(currentPage)} total={popularMovies?.total_results-1} onChange={(pageNumber,pageSize)=>{
+<Pagination className='my-4 mb-8' defaultCurrent={1} pageSize={20} current={parseInt(currentPage)} total={popularMovies?.total_results} onChange={(pageNumber,pageSize)=>{
   if(pageNumber===1){
     router.replace('/home')
   }
@@ -107,7 +107,7 @@ export const getStaticPaths= async()=>{
 
     const response = await fetch(`https://eawards.vercel.app/api/movieApis/1`)
     const popularMovies = await response.json()
-    const moviePages = Array.from({ length: popularMovies.total_pages }, (_, index) => index + 1);
+    const moviePages = Array.from({ length: popularMovies?.total_pages }, (_, index) => index + 1);
 
     console.log(moviePages, "moviePages")
 const paths  = moviePages.map((page,id)=>{

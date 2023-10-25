@@ -45,7 +45,7 @@ const sliderImgs={
 
 
 <Slider sliderImgs={sliderImgs}/>
-       <h1 className='my-4'>Eawards App</h1>
+       <h1 className='my-5'>Eawards App</h1>
 
 
 <div className="normal-cards w-100">
@@ -72,7 +72,7 @@ const sliderImgs={
 }
 </div>
 
-<Pagination className='my-4 mb-8' defaultCurrent={1} pageSize={20} current={currentPage} total={popularMovies?.total_results-1} onChange={(pageNumber,pageSize)=>{
+<Pagination className='my-4 mb-8' defaultCurrent={1} pageSize={20} current={currentPage} total={popularMovies?.total_results} onChange={(pageNumber,pageSize)=>{
 router.replace(`/home/${pageNumber}`)
 }}/> 
 
