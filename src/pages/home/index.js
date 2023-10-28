@@ -91,7 +91,7 @@ export const getStaticProps = async (context)=>{
   try{
     const result = await fetch(`https://eawards.vercel.app/api/movieApis/1`,{ cache: 'force-cache' })
     const res = await result.json()
-    const popularMovies = res.response
+    const popularMovies = await res.response
 
     const newsRes = await fetch(`https://eawards.vercel.app/api/movieNews/${'bollywood'}`,{ cache: 'force-cache' })
     const news = await newsRes.json()
