@@ -75,12 +75,13 @@ export default Celebratys
 
 export const getStaticPaths = async ()=>{
     try{
-        const response = await fetch(`https://eawards.vercel.app/api/popularPeople/1`,{
-            cache:"force-cache"
-        })
-        const popularPeople = await response.json()
-        const celebratyPages = Array.from({ length: popularPeople.total_pages }, (_, index) => index + 1);
-const paths  = celebratyPages.map((page,id)=>{
+        // const response = await fetch(`https://eawards.vercel.app/api/popularPeople/1`,{
+        //     cache:"force-cache"
+        // })
+        // const popularPeople = await response.json()
+        const celebratyPages = Array.from({ length: 500 }, (_, index) => index + 1);
+        console.log(celebratyPages, 'celebratyPages')
+const paths  = celebratyPages?.map((page,id)=>{
 return {
     params:{
     celebraty:`${page}`

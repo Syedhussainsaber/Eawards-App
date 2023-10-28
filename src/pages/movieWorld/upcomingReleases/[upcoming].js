@@ -53,12 +53,12 @@ export default UpcomingMovies
 
 export const getStaticPaths = async()=>{
 try{
-  const response = await fetch(`https://eawards.vercel.app/api/upcomings/1`,{
-            cache:"force-cache"
-        })
-        const upcomings = await response.json()
-        const upcomingsPages = Array.from({ length: upcomings.total_pages }, (_, index) => index + 1);
-const paths  = upcomingsPages.map((page,id)=>{
+  // const response = await fetch(`https://eawards.vercel.app/api/upcomings/1`,{
+  //           cache:"force-cache"
+  //       })
+        // const upcomings = await response.json()
+        const upcomingsPages = Array.from({ length: 3 }, (_, index) => index + 1);
+const paths  = upcomingsPages?.map((page,id)=>{
 return {
     params:{
 upcoming:`${page}`
@@ -78,7 +78,7 @@ console.log(err)
 
 export const getStaticProps = async({params})=>{
   try{
-    const res = await fetch(`https://eawards.vercel.app/api/upcomings/${params.upcoming}`)
+    const res = await fetch(`https://eawards.vercel.app/api/upcomings/${params?.upcoming}`)
     const upcomingMovies = await res.json()
     return {
         props:{
