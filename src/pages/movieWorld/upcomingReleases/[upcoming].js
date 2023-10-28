@@ -57,16 +57,16 @@ try{
   //           cache:"force-cache"
   //       })
         // const upcomings = await response.json()
-        const upcomingsPages = Array.from({ length: 3 }, (_, index) => index + 1);
-const paths  = upcomingsPages?.map((page,id)=>{
+//         const upcomingsPages = Array.from({ length: 3 }, (_, index) => index + 1);
+// const paths  = upcomingsPages?.map((page,id)=>{
+// return {
+//     params:{
+// upcoming:`${page}`
+//     }
+// }
+// })
 return {
-    params:{
-upcoming:`${page}`
-    }
-}
-})
-return {
-    paths,
+    paths : [{params:{upcoming:'1'}}, {params:{upcoming:'2'}}, {params:{upcoming:'3'}}],
     fallback:false
 }
 }
