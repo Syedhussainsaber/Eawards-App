@@ -97,14 +97,27 @@ export default MovieNews
 
 
 
-export const getStaticProps= async(context)=>{
+// export const getStaticProps= async(context)=>{
 
-const response = await fetch(`https://eawards-app.vercel.app/api/movieNews/${'movies'}`,{ cache: 'force-cache' })
-const movieNews = await response.json()
+// const response = await fetch(`https://eawards-app.vercel.app/api/movieNews/${'movies'}`,{ cache: 'force-cache' })
+// const movieNews = await response.json()
 
-return {
-    props:{
-        movieNews
-    }
-}
+// return {
+//     props:{
+//         movieNews
+//     }
+// }
+// }
+
+
+export const getServerSideProps = async(context)=>{
+  const response = await fetch(`https://eawards-app.vercel.app/api/movieNews/${'movies'}`,)
+  const movieNews = await response.json()
+  
+  return {
+      props:{
+          movieNews
+      }
+  }
+  
 }

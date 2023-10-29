@@ -102,34 +102,51 @@ export default News
 
 
 
-export const getStaticPaths = async() =>{
+// export const getStaticPaths = async() =>{
 
+//   try{
+//     const paths = [{ params:{movieNews:"bollywood"}},{params:{movieNews:"tollywood"}},{params:{movieNews:"hollywood"}},{params:{movieNews:"kollywood"}},{params:{movieNews:"mollywood"}},{params:{movieNews:"sandalwood"}},]
+
+//     return {
+//     paths,
+//     fallback:false
+//     }
+//   }
+//   catch(err){
+// console.log(err)
+//   }
+
+// }
+
+// export const getStaticProps = async({params})=>{
+// try{
+//   const response = await fetch(`https://eawards-app.vercel.app/api/movieNews/${params.movieNews}`,{ cache: 'force-cache' })
+//   const movieNews = await response.json()
+
+//   return {
+//       props:{
+//           movieNews
+//       }
+//   }
+// }
+// catch(err){
+// console.log(err)
+// }
+// }
+
+
+export const getServerSideProps = async(context)=>{
   try{
-    const paths = [{ params:{movieNews:"bollywood"}},{params:{movieNews:"tollywood"}},{params:{movieNews:"hollywood"}},{params:{movieNews:"kollywood"}},{params:{movieNews:"mollywood"}},{params:{movieNews:"sandalwood"}},]
-
-    return {
-    paths,
-    fallback:false
-    }
-  }
-  catch(err){
-console.log(err)
-  }
-
-}
-
-export const getStaticProps = async({params})=>{
-try{
-  const response = await fetch(`https://eawards-app.vercel.app/api/movieNews/${params.movieNews}`,{ cache: 'force-cache' })
-  const movieNews = await response.json()
-
-  return {
-      props:{
-          movieNews
+      const response = await fetch(`https://eawards-app.vercel.app/api/movieNews/${context.query.movieNews}`,)
+      const movieNews = await response.json()
+    
+      return {
+          props:{
+              movieNews
+          }
       }
-  }
-}
-catch(err){
-console.log(err)
-}
+    }
+    catch(err){
+    console.log(err)
+    }
 }

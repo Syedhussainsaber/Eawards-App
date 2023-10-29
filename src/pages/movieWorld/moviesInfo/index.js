@@ -91,29 +91,58 @@ popularMovies?.results.map((movie,id)=>{
 export default MovieInfo
 
 
-export const getStaticProps = async(context)=>{
+// export const getStaticProps = async(context)=>{
 
-try{
-  const result = await fetch(`https://eawards-app.vercel.app/api/movieApis/1`)
-  const res = await result.json()
-  const popularMovies = res.response
+// try{
+//   const result = await fetch(`https://eawards-app.vercel.app/api/movieApis/1`)
+//   const res = await result.json()
+//   const popularMovies = res.response
 
   
- const movieRes = await fetch(`https://eawards-app.vercel.app/api/movieDetails/${popularMovies?.results[0]?.id}`)
-   const movieDetails = await movieRes.json()
+//  const movieRes = await fetch(`https://eawards-app.vercel.app/api/movieDetails/${popularMovies?.results[0]?.id}`)
+//    const movieDetails = await movieRes.json()
 
-const castsRes = await fetch(`https://eawards-app.vercel.app/api/movieCastings/${popularMovies?.results[0]?.id}`)
-const castings = await castsRes.json()
-console.log(castings)
-  return{
-    props:{
-      popularMovies,
-      movieDetails,
-      castings
+// const castsRes = await fetch(`https://eawards-app.vercel.app/api/movieCastings/${popularMovies?.results[0]?.id}`)
+// const castings = await castsRes.json()
+// console.log(castings)
+//   return{
+//     props:{
+//       popularMovies,
+//       movieDetails,
+//       castings
+//     }
+//   }
+// }
+// catch(err){
+// console.log(err)
+// }
+// }
+
+
+
+export const getServerSideProps = async(context)=>{
+
+  try{
+    const result = await fetch(`https://eawards-app.vercel.app/api/movieApis/1`)
+    const res = await result.json()
+    const popularMovies = res.response
+  
+    
+   const movieRes = await fetch(`https://eawards-app.vercel.app/api/movieDetails/${popularMovies?.results[0]?.id}`)
+     const movieDetails = await movieRes.json()
+  
+  const castsRes = await fetch(`https://eawards-app.vercel.app/api/movieCastings/${popularMovies?.results[0]?.id}`)
+  const castings = await castsRes.json()
+  console.log(castings)
+    return{
+      props:{
+        popularMovies,
+        movieDetails,
+        castings
+      }
     }
   }
-}
-catch(err){
-console.log(err)
-}
-}
+  catch(err){
+  console.log(err)
+  }
+  }

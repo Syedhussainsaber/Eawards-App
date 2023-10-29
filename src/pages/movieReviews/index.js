@@ -151,7 +151,24 @@ return <div style={{width:'200px',margin:"10px"}} key={index}>
 
 export default MovieReviews
 
-export const getStaticProps = async(context)=>{
+// export const getStaticProps = async(context)=>{
+// try{
+// const res = await fetch(`https://eawards-app.vercel.app/api/movieApis/1`)
+// const data= await res.json()
+// const nowPlaying = data.response
+
+// return {
+//   props:{
+//     nowPlaying
+//   }
+// }
+// }
+// catch(err){
+// console.log(err)
+// }
+// }
+
+export const getServerSideProps = async()=>{
 try{
 const res = await fetch(`https://eawards-app.vercel.app/api/movieApis/1`)
 const data= await res.json()

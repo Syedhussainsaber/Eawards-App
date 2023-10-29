@@ -73,23 +73,45 @@ router.replace(`/movieWorld/celebratyProfile/${pageNumber}`)
 export default Celebraty
 
 
-export const getStaticProps = async ()=>{
-try{
-const response = await fetch(`https://eawards-app.vercel.app/api/popularPeople/1`,{
-    cache:"force-cache"
-})
-const popularPeople = await response.json()
-// const filteredPeople = popularPeople?.results?.filter((person)=>{
-// console.log(person['known_for'][0]['original_language'])
-// return  person['known_for'][0]['original_language']==='kn' ||  person['known_for'][0]['original_language']==='hi' ||  person['known_for'][0]['original_language']==='te' ||  person['known_for'][0]['original_language']==='ta' || person['known_for'][0]['original_language']==='ml'
+// export const getStaticProps = async ()=>{
+// try{
+// const response = await fetch(`https://eawards-app.vercel.app/api/popularPeople/1`,{
+//     cache:"force-cache"
 // })
- return {
-    props:{
-popularPeople
-    }
-}
-}
-catch(err){
-console.log(err)
-}
+// const popularPeople = await response.json()
+// // const filteredPeople = popularPeople?.results?.filter((person)=>{
+// // console.log(person['known_for'][0]['original_language'])
+// // return  person['known_for'][0]['original_language']==='kn' ||  person['known_for'][0]['original_language']==='hi' ||  person['known_for'][0]['original_language']==='te' ||  person['known_for'][0]['original_language']==='ta' || person['known_for'][0]['original_language']==='ml'
+// // })
+//  return {
+//     props:{
+// popularPeople
+//     }
+// }
+// }
+// catch(err){
+// console.log(err)
+// }
+// }
+
+
+export const getServerSideProps = async()=>{
+    try{
+        const response = await fetch(`https://eawards-app.vercel.app/api/popularPeople/1`,{
+            cache:"force-cache"
+        })
+        const popularPeople = await response.json()
+        // const filteredPeople = popularPeople?.results?.filter((person)=>{
+        // console.log(person['known_for'][0]['original_language'])
+        // return  person['known_for'][0]['original_language']==='kn' ||  person['known_for'][0]['original_language']==='hi' ||  person['known_for'][0]['original_language']==='te' ||  person['known_for'][0]['original_language']==='ta' || person['known_for'][0]['original_language']==='ml'
+        // })
+         return {
+            props:{
+        popularPeople
+            }
+        }
+        }
+        catch(err){
+        console.log(err)
+        }
 }

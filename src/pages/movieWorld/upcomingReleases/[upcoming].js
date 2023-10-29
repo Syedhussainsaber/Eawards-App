@@ -76,9 +76,25 @@ console.log(err)
 }
 
 
-export const getStaticProps = async({params})=>{
+// export const getStaticProps = async({params})=>{
+//   try{
+//     const res = await fetch(`https://eawards-app.vercel.app/api/upcomings/${params?.upcoming}`)
+//     const upcomingMovies = await res.json()
+//     return {
+//         props:{
+//             upcomingMovies
+//         }
+//       }
+//   }
+//   catch(err){
+//   console.log(err)
+//   }
+// }
+
+
+export const getServerSideProps = async(context)=>{
   try{
-    const res = await fetch(`https://eawards-app.vercel.app/api/upcomings/${params?.upcoming}`)
+    const res = await fetch(`https://eawards-app.vercel.app/api/upcomings/${context?.query?.upcoming}`)
     const upcomingMovies = await res.json()
     return {
         props:{

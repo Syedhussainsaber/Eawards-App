@@ -51,14 +51,34 @@ router.replace(`/movieWorld/upcomingReleases/${pageNumber}`)
 export default UpComing
 
 
-export const getStaticProps = async()=>{
+// export const getStaticProps = async()=>{
       
-     const res = await fetch(`https://eawards-app.vercel.app/api/upcomings/1`)
-      const upcomingMovies = await res.json()
+//      const res = await fetch(`https://eawards-app.vercel.app/api/upcomings/1`)
+//       const upcomingMovies = await res.json()
 
-      return {
-        props:{
-            upcomingMovies
-        }
-      }
+//       return {
+//         props:{
+//             upcomingMovies
+//         }
+//       }
+// }
+
+
+
+export const getServerSideProps = async()=>{
+      
+try{
+  const res = await fetch(`https://eawards-app.vercel.app/api/upcomings/1`)
+  const upcomingMovies = await res.json()
+
+  return {
+    props:{
+        upcomingMovies
+    }
+  }
+
+}
+catch (err){
+console.log(err)
+}
 }
