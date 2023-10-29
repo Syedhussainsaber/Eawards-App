@@ -210,7 +210,7 @@ console.log(err)
 
 export const getStaticProps = async({params})=>{
   try{
-    const res= await fetch("http://localhost:3000/api/starsData")
+    const res= await fetch("https://eawards-app.vercel.app/api/starsData")
     const data = await res.json()
 
     return {

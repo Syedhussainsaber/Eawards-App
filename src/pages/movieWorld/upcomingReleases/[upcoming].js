@@ -78,7 +78,7 @@ console.log(err)
 
 export const getStaticProps = async({params})=>{
   try{
-    const res = await fetch(`http://localhost:3000/api/upcomings/${params?.upcoming}`)
+    const res = await fetch(`https://eawards-app.vercel.app/api/upcomings/${params?.upcoming}`)
     const upcomingMovies = await res.json()
     return {
         props:{

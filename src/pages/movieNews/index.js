@@ -99,7 +99,7 @@ export default MovieNews
 
 export const getStaticProps= async(context)=>{
 
-const response = await fetch(`http://localhost:3000/api/movieNews/${'movies'}`,{ cache: 'force-cache' })
+const response = await fetch(`https://eawards-app.vercel.app/api/movieNews/${'movies'}`,{ cache: 'force-cache' })
 const movieNews = await response.json()
 
 return {
