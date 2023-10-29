@@ -94,15 +94,15 @@ export default MovieInfo
 export const getStaticProps = async(context)=>{
 
 try{
-  const result = await fetch(`https://eawards-app.vercel.app/api/movieApis/1`,{ cache: 'force-cache' })
+  const result = await fetch(`http://localhost:3000/api/movieApis/1`)
   const res = await result.json()
   const popularMovies = res.response
 
   
- const movieRes = await fetch(`https://eawards-app.vercel.app/api/movieDetails/${popularMovies?.results[0]?.id}`)
+ const movieRes = await fetch(`http://localhost:3000/api/movieDetails/${popularMovies?.results[0]?.id}`)
    const movieDetails = await movieRes.json()
 
-const castsRes = await fetch(`https://eawards-app.vercel.app/api/movieCastings/${popularMovies?.results[0]?.id}`)
+const castsRes = await fetch(`http://localhost:3000/api/movieCastings/${popularMovies?.results[0]?.id}`)
 const castings = await castsRes.json()
 console.log(castings)
   return{

@@ -19,7 +19,7 @@ export default function HomePages({popularMovies, currentPage}) {
 const router = useRouter()
 const {userData} = useAuth()
 
-console.log(popularMovies)
+
 const sliderImgs={
   sliderImg1: popularMovies?.results[4]['poster_path'],
   sliderImg2: popularMovies?.results[3]['poster_path'],
@@ -81,7 +81,7 @@ if(router.query.pages === '1'){
 </div>
 
 
-<Pagination className='my-4 mb-8' defaultCurrent={1} pageSize={20} current={parseInt(currentPage)} total={popularMovies?.total_results} onChange={(pageNumber,pageSize)=>{
+<Pagination className='my-4 mb-8' defaultCurrent={1} pageSize={20} current={parseInt(currentPage)} total={popularMovies?.total_results-1} onChange={(pageNumber,pageSize)=>{
   if(pageNumber===1){
     router.replace('/home')
   }
@@ -130,7 +130,7 @@ export const getStaticPaths= async()=>{
 
 export const getStaticProps = async({params})=>{
   try {
-const result = await fetch(`https://eawards-hnfbzk8a0-bitovia.vercel.app/api/movieApis/${params.pages}`)
+const result = await fetch(`http://localhost:3000/api/movieApis/${params.pages}`)
 const res = await result.json()
 const popularMovies = res.response
 const currentPage =params.pages
