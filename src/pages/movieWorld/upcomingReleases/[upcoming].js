@@ -51,29 +51,29 @@ router.replace(`/movieWorld/upcomingReleases/${pageNumber}`)
 export default UpcomingMovies
 
 
-export const getStaticPaths = async()=>{
-try{
-  // const response = await fetch(`https://eawards.vercel.app/api/upcomings/1`,{
-  //           cache:"force-cache"
-  //       })
-        // const upcomings = await response.json()
-//         const upcomingsPages = Array.from({ length: 3 }, (_, index) => index + 1);
-// const paths  = upcomingsPages?.map((page,id)=>{
+// export const getStaticPaths = async()=>{
+// try{
+//   // const response = await fetch(`https://eawards.vercel.app/api/upcomings/1`,{
+//   //           cache:"force-cache"
+//   //       })
+//         // const upcomings = await response.json()
+// //         const upcomingsPages = Array.from({ length: 3 }, (_, index) => index + 1);
+// // const paths  = upcomingsPages?.map((page,id)=>{
+// // return {
+// //     params:{
+// // upcoming:`${page}`
+// //     }
+// // }
+// // })
 // return {
-//     params:{
-// upcoming:`${page}`
-//     }
+//     paths : [{params:{upcoming:'1'}}, {params:{upcoming:'2'}}, {params:{upcoming:'3'}}],
+//     fallback:false
 // }
-// })
-return {
-    paths : [{params:{upcoming:'1'}}, {params:{upcoming:'2'}}, {params:{upcoming:'3'}}],
-    fallback:false
-}
-}
-catch(err){
-console.log(err)
-}
-}
+// }
+// catch(err){
+// console.log(err)
+// }
+// }
 
 
 // export const getStaticProps = async({params})=>{
@@ -94,7 +94,7 @@ console.log(err)
 
 export const getServerSideProps = async(context)=>{
   try{
-    const res = await fetch(`https://eawards-app.vercel.app/api/upcomings/${context?.query?.upcoming}`)
+    const res = await fetch(`https://eawards-app.vercel.app/api/upcomings/${context.query.upcoming}`)
     const upcomingMovies = await res.json()
     return {
         props:{
