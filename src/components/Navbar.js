@@ -169,15 +169,20 @@ Hollywood
 
 
   return (
+
     <nav className="navbar navbar-expand-lg" style={{position:'fixed'}}>
     <div className="container-fluid py-3 px-2" style={{backgroundColor:"#000080"}}>
       <Link className="navbar-brand text-white rounded" onClick={()=>{
         handleActive("home")
-      }}  href="/home"><img src="/logo.jpg" className='rounded' alt="E-awards" height={'80px'} width={"80px"} />
+      }}  href="/home">< img src="/logo.jpg" className='rounded' alt="E-awards" height={'80px'} width={"80px"} />
        </Link>
+
+       
       <button className="navbar-toggler bg-white my-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
+
+
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
         <ul className="navbar-nav me-auto mb-2 mb-lg-0"  >
@@ -230,7 +235,6 @@ worlds ?   <Dropdown
               Movies World </a>   
             </Dropdown>:<></>
             }
-      
           </li>
 
           <li className="nav-item dropdown my-2 my-lg-0">
@@ -286,6 +290,7 @@ router.push("/register")
       </div>
     </div>
   </nav>
+
   )
 }
 

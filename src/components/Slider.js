@@ -5,7 +5,7 @@ import React from 'react'
 const Slider = ({sliderImgs}) => {
 
   return (
-    <div className='w-75' style={{position:'relative',top:"175px"}}>
+    <div className='w-75' style={{position:'relative',top:"180px"}}>
       <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
   <div className="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
