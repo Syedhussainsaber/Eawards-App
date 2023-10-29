@@ -110,7 +110,6 @@ currentPage,
   upcomings
 }
 }
-
   }
   catch(err){
   console.log(err)

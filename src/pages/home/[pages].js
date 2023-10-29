@@ -146,3 +146,22 @@ console.log(err)
   }
 }
 
+// export const getServerSideProps = async(context)=>{
+// try{
+//   const result = await fetch(`https://eawards.vercel.app/api/movieApis/${context.query.pages}`)
+//   const res = await result.json()
+//   const popularMovies = res.response
+//   const currentPage = res.page
+//   return {
+//     props:{
+//   popularMovies,
+//   currentPage
+//     }
+//   }
+
+// }
+// catch(err){
+// console.log(err)
+// }
+
+// }

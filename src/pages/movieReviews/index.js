@@ -153,7 +153,7 @@ export default MovieReviews
 
 export const getStaticProps = async(context)=>{
 try{
-const res = await fetch(`https:/eawards.vercel.app/api/movieApis/1`)
+const res = await fetch(`https://eawards.vercel.app/api/movieApis/1`)
 const data= await res.json()
 const nowPlaying = data.response
 

@@ -73,35 +73,10 @@ router.replace(`/movieWorld/celebratyProfile/${pageNumber}`)
 export default Celebratys
 
 
-export const getStaticPaths = async ()=>{
-    try{
-        // const response = await fetch(`https://eawards.vercel.app/api/popularPeople/1`,{
-        //     cache:"force-cache"
-        // })
-        // const popularPeople = await response.json()
-        const celebratyPages = Array.from({ length: 500 }, (_, index) => index + 1);
-        console.log(celebratyPages, 'celebratyPages')
-const paths  = celebratyPages?.map((page,id)=>{
-return {
-    params:{
-    celebraty:`${page}`
-    }
-}
-})
-return {
-    paths,
-    fallback:false
-}
-    }
-    catch(err){
-console.log(err)
-    }
-}
 
-
-export const getStaticProps = async ({params})=>{
+export const getServerSideProps = async (context)=>{
     try{
-    const response = await fetch(`https://eawards.vercel.app/api/popularPeople/${params.celebraty}`,{
+    const response = await fetch(`https://eawards.vercel.app/api/popularPeople/${context.query.celebraty}`,{
         cache:"force-cache"
     })
     const popularPeople = await response.json()
