@@ -93,6 +93,11 @@ export default Infos
 
 export const getServerSideProps = async(context)=>{
     try{    
+
+      const result = await fetch(`https://eawards-app.vercel.app/api/movieApis/1`)
+      const res = await result.json()
+      const popularMovies = res.response
+      
 const movieRes = await fetch(`https://eawards-app.vercel.app/api/movieDetails/${context.query.info}`)
 const movieDetails = await movieRes.json()
     const castsRes = await fetch(`https://eawards-app.vercel.app/api/movieCastings/${context.query.info}`)
