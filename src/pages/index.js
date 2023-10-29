@@ -8,11 +8,11 @@ const Login = () => {
 
   const router = useRouter()
 
-  useEffect(()=>{
-    if(router.route === '/'){
-      router.replace("/home")
-    }
-  },[])
+  // useEffect(()=>{
+  //   if(router.route === '/'){
+  //     router.replace("/home")
+  //   }
+  // },[])
   
 
   return (
