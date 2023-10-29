@@ -120,7 +120,7 @@ console.log(err)
 
 export const getStaticProps = async({params})=>{
 try{
-  const response = await fetch(`https://eawards-hnfbzk8a0-bitovia.vercel.app/api/movieNews/${params.movieNews}`,{ cache: 'force-cache' })
+  const response = await fetch(`https://eawards-app.vercel.app/api/movieNews/${params.movieNews}`,{ cache: 'force-cache' })
   const movieNews = await response.json()
 
   return {

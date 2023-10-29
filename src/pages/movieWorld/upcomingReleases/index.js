@@ -53,7 +53,7 @@ export default UpComing
 
 export const getStaticProps = async()=>{
       
-     const res = await fetch(`https://eawards-hnfbzk8a0-bitovia.vercel.app/api/upcomings/1`)
+     const res = await fetch(`https://eawards-app.vercel.app/api/upcomings/1`)
       const upcomingMovies = await res.json()
 
       return {

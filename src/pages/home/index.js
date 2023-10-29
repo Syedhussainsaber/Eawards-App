@@ -89,14 +89,14 @@ router.replace(`/home/${pageNumber}`)
 
 export const getStaticProps = async (context)=>{
   try{
-    const result = await fetch(`https://eawards-hnfbzk8a0-bitovia.vercel.app/api/movieApis/1`,{ cache: 'force-cache' })
+    const result = await fetch(`https://eawards-app.vercel.app/api/movieApis/1`,{ cache: 'force-cache' })
     const res = await result.json()
     const popularMovies = await res.response
 
-    const newsRes = await fetch(`https://eawards-hnfbzk8a0-bitovia.vercel.app/api/movieNews/${'bollywood'}`,{ cache: 'force-cache' })
+    const newsRes = await fetch(`https://eawards-app.vercel.app/api/movieNews/${'bollywood'}`,{ cache: 'force-cache' })
     const news = await newsRes.json()
     
-    const upcomingsRes= await fetch("https://eawards-hnfbzk8a0-bitovia.vercel.app/api/upcomings/1",{
+    const upcomingsRes= await fetch("https://eawards-app.vercel.app/api/upcomings/1",{
       cache: 'force-cache' 
     })
     const upcomings = await  upcomingsRes.json()
