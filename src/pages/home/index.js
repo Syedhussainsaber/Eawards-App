@@ -89,14 +89,14 @@ router.replace(`/home/${pageNumber}`)
 
 export const getStaticProps = async (context)=>{
   try{
-    const result = await fetch(`https://eawards.vercel.app/api/movieApis/1`,{ cache: 'force-cache' })
+    const result = await fetch(`http://localhost:3000/api/movieApis/1`,{ cache: 'force-cache' })
     const res = await result.json()
     const popularMovies = await res.response
 
-    const newsRes = await fetch(`https://eawards.vercel.app/api/movieNews/${'bollywood'}`,{ cache: 'force-cache' })
+    const newsRes = await fetch(`http://localhost:3000/api/movieNews/${'bollywood'}`,{ cache: 'force-cache' })
     const news = await newsRes.json()
     
-    const upcomingsRes= await fetch("https://eawards.vercel.app/api/upcomings/1",{
+    const upcomingsRes= await fetch("http://localhost:3000/api/upcomings/1",{
       cache: 'force-cache' 
     })
     const upcomings = await  upcomingsRes.json()

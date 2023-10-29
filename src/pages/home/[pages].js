@@ -130,7 +130,7 @@ export const getStaticPaths= async()=>{
 
 export const getStaticProps = async({params})=>{
   try {
-const result = await fetch(`https://eawards.vercel.app/api/movieApis/${params.pages}`)
+const result = await fetch(`http://localhost:3000/api/movieApis/${params.pages}`)
 const res = await result.json()
 const popularMovies = res.response
 const currentPage =params.pages
