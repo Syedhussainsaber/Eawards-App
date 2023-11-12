@@ -31,7 +31,7 @@ margin: 5px;
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 //   gap: 45vw;
 //   height: 80px;
     // width: 100%;
@@ -53,10 +53,10 @@ width: 100vw;
 .nav__brand {
   text-transform: uppercase;
 // margin: -10px 5px;
-.logo{
-    // width: 115px;
-    // height: 100px;
-}
+// .logo{
+//     // width: 115px;
+//     // height: 100px;
+// }
 }
 
 
