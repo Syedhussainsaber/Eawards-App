@@ -227,7 +227,7 @@ items
             >
       <a  className={active ==='vote' ? "nav__link dropdown-toggle active rounded p-2 p-lg-2":'nav__link rounded dropdown-toggle p-2 p-lg-2'} onClick={(e)=>{
         handleActive('vote')
-        navToggle()
+        // navToggle()
     }}  id="navbarDropdown" role="button" aria-expanded="false">
                   Vote for your Best </a>   
             </Dropdown>:<></>
@@ -263,7 +263,7 @@ worlds ?   <Dropdown
             >
       <a className={active==='world' ? "nav__link rounded dropdown-toggle active p-2 p-lg-2" : "nav__link rounded dropdown-toggle p-2 p-lg-2"} onClick={(e)=>{
               handleActive('world')
-              navToggle()
+              // navToggle()
             }} id="navbarDropdown" role="button" aria-expanded="false">
               Movies World </a>   
             </Dropdown>:<></>
@@ -279,7 +279,7 @@ winners ?   <Dropdown
             >
       <a  className={active==='award' ? "nav__link rounded dropdown-toggle active p-2 p-lg-2" : "nav__link rounded dropdown-toggle p-2 p-lg-2"} onClick={(e)=>{
               handleActive('award')
-              navToggle()
+              // navToggle()
             }} id="navbarDropdown" role="button" aria-expanded="false">
 Award Winners </a>   
             </Dropdown>:<></>
@@ -307,7 +307,7 @@ abouts ?   <Dropdown
             >
       <a  className={active==='about' ? "nav__link rounded active dropdown-toggle p-2 p-lg-2" : "nav__link rounded dropdown-toggle p-2 p-lg-2"} onClick={(e)=>{
               handleActive('about')
-              navToggle()
+              // navToggle()
             }} id="navbarDropdown" role="button" aria-expanded="false">
 About Eawards </a>   
             </Dropdown>:<></>
