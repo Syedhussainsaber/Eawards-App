@@ -5,7 +5,7 @@ import { useData } from '@/contexts/DataApi'
 import { useRouter } from 'next/router'
 import Footer from '@/components/Footer'
 
-const Celebratys = ({popularPeople}) => {
+const Celebratys = ({popularPeople, currentPage}) => {
     const router = useRouter()
 const {handleActive} = useData()
 
@@ -42,7 +42,6 @@ return <>
        }
         
 
-
 <p className='text-center mt-2'>{item.title}</p>
 </div>
 </>
@@ -58,7 +57,7 @@ return <>
  
 
 <div className="w-100 d-flex justify-content-center align-items-center py-2 mb-4">
-<Pagination className='m-2 mb-8' defaultCurrent={router.query.celebraty} showSizeChanger showQuickJumpe  total={popularPeople.total_results} onChange={(pageNumber,pageSize)=>{
+<Pagination className='m-2 mb-8' current={currentPage} defaultCurrent={router.query.celebraty} showSizeChanger showQuickJumpe  total={popularPeople.total_results} onChange={(pageNumber,pageSize)=>{
 router.replace(`/movieWorld/celebratyProfile/${pageNumber}`)
 }}/> 
 </div>
@@ -84,9 +83,11 @@ export const getServerSideProps = async (context)=>{
     // console.log(person['known_for'][0]['original_language'])
     // return  person['known_for'][0]['original_language']==='kn' ||  person['known_for'][0]['original_language']==='hi' ||  person['known_for'][0]['original_language']==='te' ||  person['known_for'][0]['original_language']==='ta' || person['known_for'][0]['original_language']==='ml'
     // })
+    const currentPage = parseInt(context.query.celebraty)
      return {
         props:{
-    popularPeople
+    popularPeople,
+    currentPage
         }
     }
     }

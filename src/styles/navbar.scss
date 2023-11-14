@@ -12,16 +12,14 @@
 //   }
 // }
 
-.normal-cards{
-  width: 90%;    
+.normal-cards{    
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 25px;
+  justify-content:space-evenly;
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
-margin: 0 auto;
+margin: 75px auto;
 }
 .movies{
     display: flex;

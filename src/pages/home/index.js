@@ -45,7 +45,7 @@ const sliderImgs={
 
 
 <Slider sliderImgs={sliderImgs}/>
-       <h1 className='my-5'>Eawards App</h1>
+       <h1 className='my-5 fs-1' style={{position:"relative", top:"175px", display:"block"}}>Eawards App</h1>
 
 
 <div className="normal-cards w-100">
@@ -59,8 +59,8 @@ const sliderImgs={
 
 {console.log(popularMovies.results)}
 
-<h2 className='mt-5'>Now Playing</h2>
-<div className="movies w-75">
+<h2 className='my-4 fs-2'>Now Playing</h2>
+<div className="movies w-75 mb-5">
 
 {
   popularMovies?.results.map((item,index)=>{
@@ -72,7 +72,7 @@ const sliderImgs={
 }
 </div>
 
-<Pagination className='my-4 mb-8' defaultCurrent={1} pageSize={20} current={currentPage} total={popularMovies?.total_results-1} onChange={(pageNumber,pageSize)=>{
+<Pagination className='my-5 mb-8' defaultCurrent={1} pageSize={20} current={currentPage} total={popularMovies?.total_results-1} onChange={(pageNumber,pageSize)=>{
 router.replace(`/home/${pageNumber}`)
 }}/> 
 

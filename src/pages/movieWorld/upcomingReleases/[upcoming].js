@@ -7,7 +7,7 @@ import { Pagination } from 'antd'
 import { useData } from '@/contexts/DataApi'
 
 
-const UpcomingMovies = ({upcomingMovies}) => {
+const UpcomingMovies = ({upcomingMovies, currentPage}) => {
 const router = useRouter()
 const {handleActive} = useData()
 
@@ -37,7 +37,7 @@ useEffect(()=>{
 </div>
 
 <div className="pagination w-100 my-2">
-<Pagination className='my-4 mx-auto' defaultCurrent={upcomingMovies.page} pageSize={20}  total={upcomingMovies.total_results} onChange={(pageNumber,pageSize)=>{
+<Pagination className='my-4 mx-auto' current={currentPage} defaultCurrent={upcomingMovies.page} pageSize={20}  total={upcomingMovies.total_results} onChange={(pageNumber,pageSize)=>{
 router.replace(`/movieWorld/upcomingReleases/${pageNumber}`)
 }}/>
 </div>
@@ -96,9 +96,12 @@ export const getServerSideProps = async(context)=>{
   try{
     const res = await fetch(`https://eawards-app.vercel.app/api/upcomings/${context.query.upcoming}`)
     const upcomingMovies = await res.json()
+const currentPage = parseInt(context.query.upcoming)
+
     return {
         props:{
-            upcomingMovies
+            upcomingMovies,
+            currentPage
         }
       }
   }

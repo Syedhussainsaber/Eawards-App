@@ -68,8 +68,8 @@ if(router.query.pages === '1'){
 
 
 <h2 className='mt-5'>Now Playing</h2>
-<div className="movies w-75">
 
+<div className="movies w-75 mb-5">
 {
   popularMovies?.results?.map((item,index)=>{
     if(item.poster_path){
@@ -81,7 +81,7 @@ if(router.query.pages === '1'){
 </div>
 
 
-<Pagination className='my-4 mb-8' defaultCurrent={1} pageSize={20} current={parseInt(currentPage)} total={popularMovies?.total_results-1} onChange={(pageNumber,pageSize)=>{
+<Pagination className='my-5 mb-8' defaultCurrent={1} pageSize={20} current={currentPage} total={popularMovies?.total_results-1} onChange={(pageNumber,pageSize)=>{
   if(pageNumber===1){
     router.replace('/home')
   }
@@ -151,7 +151,7 @@ try{
   const result = await fetch(`https://eawards-app.vercel.app/api/movieApis/${context.query.pages}`)
   const res = await result.json()
   const popularMovies = res.response
-  const currentPage = res.page
+  const currentPage = parseInt(context.query.pages)
   return {
     props:{
   popularMovies,
