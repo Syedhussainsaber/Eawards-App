@@ -28,7 +28,7 @@ const sliderImgs={
   return (
     <>
       <Head>
-        <title>Eawards App</title>
+        <title>Eawards App - The Movie Review and Rating Platform</title>
         <meta name="description" content="The Top Movie Review and Rating platform of India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpg" />
