@@ -12,13 +12,19 @@ import { ToastContainer, toast } from 'react-toastify';
 import Navbar2 from '@/components/Navbar2'
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from '@/components/Navbar'
-
+import Head from 'next/head'
 
 export default function App({ Component, pageProps }) {
   return (
   <>
     <DataApi>
   <AuthAPI>
+  <Head>
+        <title>Eawards App - The Movie Review and Rating Platform</title>
+        <meta name="description" content="The Top Movie Review and Rating platform of India" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.jpg" />
+      </Head>
       <div style={{backgroundColor:"#000080", position:'fixed', top:"0px", zIndex:"10"}} className="social-icons w-100 d-flex flex-row justify-content-end gap-3 align-items-center py-2 py-lg-2 px-2">      
           <span className='fw-bold text-white fs-5'>Socail Links:</span>
 <AiFillInstagram size={30} color='white' cursor={'pointer'}/>

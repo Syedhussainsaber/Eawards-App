@@ -5,7 +5,13 @@ export default function Document() {
 
     <Html lang="en">
     
-      <Head />
+    <Head>
+        <title>Eawards App - The Movie Review and Rating Platform</title>
+        <meta name="description" content="Eawards - Movie Rating Web App" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.jpg" />
+      </Head>
+
       <body>
         <Main />
         <NextScript />
