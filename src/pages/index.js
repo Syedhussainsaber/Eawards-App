@@ -26,8 +26,8 @@ const Login = () => {
         <link rel="icon" href="/favicon.jpg" />
       </Head>
  <div style={{position:'relative',top:'180px'}} >
- <h1 className='col-12 col-sm-6 text-center text-sm-start mx-auto'>Eawards</h1> 
- <div className="login-container py-4">
+ <h1 className='col-12 col-sm-6 text-center text-sm-start mx-auto fw-bold'>Eawards</h1> 
+ <div className="login-container py-4 fw-bold">
  <h2 className='text-center'>Login</h2>
 <UserForm title={"Login"} phoneNumber={false} confirmPassword={false}/>
 

@@ -68,7 +68,7 @@ Hollywood
    <div style={{position:'relative', top:"160px"}}>
 
  
-<h2 className='text-center fs-2 my-4'>{router.query.movieNews} Movie News</h2>
+<h2 className='text-center my-4 fw-bold'>{router.query.movieNews} Movie News</h2>
 <div className="my-4 d-flex w-75 mx-auto flex-row align-items-center justify-content-end">
         <Dropdown
         menu={{
@@ -82,10 +82,10 @@ Hollywood
     {
         movieNews?.articles?.map((news,index)=>{
  return <div className="news-section w-75  m-auto mb-5">
- <h3 className='fs-2 text-center text-md-start lh-base'>{index+1}. {news.title}</h3>
+ <h3 className='text-center text-md-start lh-base'>{index+1}. {news.title}</h3>
  <div className="d-flex w-100 flex-column flex-md-row justify-content-center justify-content-md-start gap-3 align-items-center align-items-md-start">
  <img src={news.urlToImage} className='p-2' width={'270px'} height={'300px'} alt={news.title} />
- <p className='w-75 text-center text-md-center fs-5'>{news?.description}</p>
+ <p className='w-75 text-center text-md-center'>{news?.description}</p>
 </div>
  </div> 
         })

@@ -5,7 +5,7 @@ const blogs = () => {
 <>
 
 <div style={{position:'relative', top:'150px'}}>
-<h2 className='text-center'>Blogs</h2>
+<h2 className='text-center fw-bold'>Blogs</h2>
 <Footer/>
 </div>
 </>

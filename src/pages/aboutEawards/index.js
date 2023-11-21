@@ -4,10 +4,8 @@ import Footer from '@/components/Footer'
 const AboutEawards = () => {
   return (
 <>
-
 <div style={{position:'relative', top:'160px'}}>
-<h2 className='text-center'>About Eawards</h2>
-
+<h2 className='text-center fw-bold'>About Eawards</h2>
 
 <Footer/>
 </div>

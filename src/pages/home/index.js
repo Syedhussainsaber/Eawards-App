@@ -59,7 +59,7 @@ const sliderImgs={
 
 {console.log(popularMovies.results)}
 
-<h2 className='my-4 fs-2'>Now Playing</h2>
+<h2 className='my-4'>Now Playing</h2>
 <div className="movies w-75 mb-5">
 
 {

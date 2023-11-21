@@ -318,8 +318,8 @@ About Eawards </a>
 <li className="nav__item">
 {
             userData ? <>
-             <button className="btn btn-danger p-2 fs-3" type='button' onClick={logoutFun}>Logout</button></> :
-            <> <button className="btn bg-warning p-2 fs-3" style={{backgroundColor:'black'}} type='button' onClick={()=>{
+             <button className="btn btn-danger px-2 py-1" type='button' onClick={logoutFun}>Logout</button></> :
+            <> <button className="btn bg-warning px-2 py-1" style={{backgroundColor:'black'}} type='button' onClick={()=>{
 router.push("/register")
             }}>Register</button></>
           }

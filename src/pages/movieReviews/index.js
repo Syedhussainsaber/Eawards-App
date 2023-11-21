@@ -69,15 +69,15 @@ Object.keys(reviewMovie).length > 0 && reviewMovie != 'undefined' && reviewMovie
 <Card id={nowPlaying?.results[0]?.id} title={nowPlaying?.results[0]?.title} btnText={"Review"} img={"https://image.tmdb.org/t/p/w500/"+nowPlaying?.results[0]?.poster_path}/>
 }
 <div className='d-flex flex-column justify-content-center align-items-end'>
-<p className='fs-3'>Eawards Rating <span className='mx-2'><AiFillStar/> <AiFillStar/> <AiFillStar/></span></p>
-<p className='fs-3'>Mr . B Rating <span className='mx-2'><AiFillStar/> <AiFillStar/> <AiFillStar/></span></p>
-<p className='fs-3'>Eawards Rating <span className='mx-2'><AiFillStar/> <AiFillStar/> <AiFillStar/></span></p>
+<p>Eawards Rating <span className='mx-2'><AiFillStar/> <AiFillStar/> <AiFillStar/></span></p>
+<p>Mr . B Rating <span className='mx-2'><AiFillStar/> <AiFillStar/> <AiFillStar/></span></p>
+<p>Eawards Rating <span className='mx-2'><AiFillStar/> <AiFillStar/> <AiFillStar/></span></p>
 <button className='btn btn-success my-2 w-100'>Submit Your Rating & Comment</button>
 </div>
 </div>
-<h5 className='fw-bold fs-3 my-4'>Comments</h5>
+<h5 className='fw-bold my-4'>Comments</h5>
 <div className='box border border-secondary my-2 rounded overflow-y-scroll py-2' style={{height:"280px"}}>
-  <p className='m-3 my-2 mb-5 fs-5 fw-bolder text-start'>Recent Comments</p>
+  <p className='m-3 my-2 mb-5 fw-bolder text-start'>Recent Comments</p>
   <div className='w-100'>
 {
 
@@ -91,16 +91,14 @@ recentComments?.map((comment, index)=>{
     <p className='fw-bold text-black text-center'>{comment.comment}</p>
     <hr className='w-100' />
     </div>
-
-
 })}
 </div>
 </div>
 <div className="comment d-flex flex-column">
-<Input placeholder='Comment' size='large' className='fs-5' value={comment} onChange={(e)=>{
+<Input placeholder='Comment' size='large' value={comment} onChange={(e)=>{
 setComment(e.target.value)
 }} />
-     <button className='btn btn-dark my-2 w-50 w-sm-25 align-self-end fs-5' disabled={comment ? false:true} onClick={()=>{
+     <button className='btn btn-dark my-2 w-50 w-sm-25 align-self-end' disabled={comment ? false:true} onClick={()=>{
       if( typeof reviewMovie === 'object' &&
       Object.keys(reviewMovie).length > 0 && reviewMovie != 'undefined' && reviewMovie !== null ){
         handleComments({
@@ -123,7 +121,7 @@ else{
       setComment('')
 }} >Comment</button>
 </div>
-<h5 className='w-75 p-2 fs-4 mt-5 mt-sm-3 text-start'>Rate Other Movies</h5>
+<h5 className='w-75 p-2 mt-5 mt-sm-3 text-start'>Rate Other Movies</h5>
 <div className="w-100 w-sm-75 d-flex overflow-y-scroll justify-content-start align-items-start gap-5 mx-auto py-2">
 
 {

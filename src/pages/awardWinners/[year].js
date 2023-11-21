@@ -21,7 +21,7 @@ if(router.asPath.includes("awardWinners")){
   return (
   <>
 <div style={{position:'relative', top:'160px'}}>
-<h2>{router.query.year} Winners</h2>
+<h2 className='fw-bold text-center my-3'>{router.query.year} Winners</h2>
 <Footer/>
 </div>
   </>

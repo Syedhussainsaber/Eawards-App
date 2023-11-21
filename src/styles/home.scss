@@ -13,6 +13,12 @@
     margin-top: 100px;
 }
 
+.feedback{
+    display: flex;
+justify-content: space-evenly;
+align-items: center;
+}
+
 
 @media screen and (max-width:992px) and (min-width:584px) {
     .section-card{
@@ -32,5 +38,9 @@
     }
     .upcoming-card{
         margin-top: 20px;
+    }
+    .feedback{
+        flex-direction: column;
+        gap: 15px;
     }
 }

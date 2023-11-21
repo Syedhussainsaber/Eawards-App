@@ -23,7 +23,7 @@ useEffect(()=>{
 
     <div style={{position:'relative', top:'160px'}}>
       {console.log(upcomingMovies)}
-      <h2 className='text-center my-4'>Upcoming Movies</h2>
+      <h2 className='text-center my-4 fw-bold'>Upcoming Movies</h2>
       <div className="movies w-75">
 
 {

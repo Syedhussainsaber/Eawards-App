@@ -117,8 +117,8 @@ new Image()
 return (
     <>
 <div style={{position:'relative', top:'170px'}}>
-<h1 className='text-center py-4 pb-3 fw-bold fs-1 text-success'>Vote For Your Best</h1>
-<h2 className='w-50 text-center m-auto fs-2 pt-2 pb-4'>{starsData['title']}</h2>
+<h2 className='text-center py-4 pb-3 fw-bold text-success'>Vote For Your Best</h2>
+<h3 className='w-50 text-center m-auto pt-2 pb-4'>{starsData['title']}</h3>
 {
 votes.length > 0  ? 
 <>
@@ -130,23 +130,23 @@ votes.length > 0  ?
 <MovieCard title={votes[0]?.bestDirector?.name} type={'person'} id={''} description={''} img={votes[0]?.bestDirector?.img} />
 <MovieCard title={votes[0]?.bestActress?.name} type={'person'} id={''} description={''} img={votes[0]?.bestActress?.img} />
 </div>
-<p className='text-center fs-3 mb-4'>Total Voting Count : <span className='text-success'>{allVotes.length}</span></p>
+<p className='text-center fs-4 mb-4'>Total Voting Count : <span className='text-success'>{allVotes.length}</span></p>
 
-<p className='text-center text-success fw-bold fs-4 mb-4'>Thanks For Voting!</p>
+<p className='text-center text-success fw-bold fs-5 mb-4'>Thanks For Voting!</p>
 
 <div className="w-100 d-flex justify-content-center mb-4 gap-4">
 <button className='btn btn-success' onClick={generatePdf}>Download</button>
 <button className='btn btn-dark' onClick={generatePdf}>Share</button>
 </div>
 </>: <>
-<h2 className='col-10 text-center text-sm-start col-sm-6 m-auto py-2 fs-2 mt-4 mb-2'>Select Best Actor</h2>
+<h2 className='col-10 text-center text-sm-start col-sm-6 m-auto py-2 mt-4 mb-2'>Select Best Actor</h2>
 
 <ImageSelector images={actors} name='actor' />
 
-<h2 className='col-10 text-center text-sm-start col-sm-6 m-auto py-2 fs-2 mt-4 mb-2'>Select Best Director</h2>
+<h2 className='col-10 text-center text-sm-start col-sm-6 m-auto py-2 mt-4 mb-2'>Select Best Director</h2>
 <ImageSelector images={directors} name={'director'} />
 
-<h2 className='col-10 text-center text-sm-start col-sm-6 m-auto py-2 fs-2 mt-4 mb-2'>Select Best Actress</h2>
+<h2 className='col-10 text-center text-sm-start col-sm-6 m-auto py-2 mt-4 mb-2'>Select Best Actress</h2>
 <ImageSelector images={actresses} name={'actress'} />
 <UserForm title={"Submit"} phoneNumber={true} confirmPassword={false} industry={router.query.name} />
   </>
