@@ -24,36 +24,32 @@ const {handleActive} = useData()
     {popularPeople?.results?.map((person,index)=>{
         if(person.profile_path){
             return <>
-            <div className="d-flex shadow-lg py-2 flex-column flex-lg-row w-75 m-auto justify-content-evenly my-4 rounded align-items-center">
+<div className="d-flex shadow-lg py-2 flex-column flex-lg-row w-75 m-auto justify-content-evenly my-4 rounded align-items-center">
    <MovieCard key={index} type={'person'} id={''} img={'https://image.tmdb.org/t/p/w500/'+person?.profile_path} title={person?.name} description={''}/>
 <div className="celebraty-content w-75">
     <h3 className='text-center my-4'>Profession: {person.known_for_department}</h3>
 <h4 className='text-start text-lg-center w-50 w-lg-25 mb-4'>Known For:</h4>
 <div className="d-flex flex-column flex-md-row justify-content-evenly align-items-center gap-2 w-100">
-
 {person.known_for.map((item,index)=>{
 return <>
 <div key={index}>
-
        {
         item?.backdrop_path?
         <img src={"https://image.tmdb.org/t/p/w500/"+item.backdrop_path} className='rounded m-auto' alt="" width={150} height={180} />
         :<></>
        }
-        
-
 <p className='text-center mt-2'>{item.title}</p>
 </div>
 </>
-    })}
-    </div>
+})}
 </div>
-            </div>
+</div>
+</div>
 {/* <hr className='w-100 my-2 mt-4' /> */}
-            </>
-        }
-    })}
-    </div>
+</>
+}
+})}
+</div>
  
 
 <div className="w-100 d-flex justify-content-center align-items-center py-2 mb-4">
@@ -65,7 +61,7 @@ router.replace(`/movieWorld/celebratyProfile/${pageNumber}`)
 <Footer/>
 
 </div>
-    </>
+</>
   )
 }
 

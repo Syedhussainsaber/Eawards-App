@@ -210,16 +210,14 @@ function Navbar2() {
             handleActive('home')
         navToggle()
         }
-
         }
-      
           >Home</Link>  
-
         </li>
+
         <li className="nav__item">
           {/* <Link href={"/academics"} className="nav__link">Academics</Link> */}
           {
-              items?   <Dropdown
+              items? <Dropdown
               menu={{
 items
               }}
@@ -236,12 +234,10 @@ items
       
 <li className="nav__item">
     {/* <Link href={"/facilities"} className="nav__link">Facilities</Link> */}
-    
     <Link className={active==='review' ? "nav__link rounded active p-2 p-lg-2":"nav__link rounded p-2 p-lg-2"} onClick={(e)=>{
               handleActive('review')
               navToggle()
           }} href="/movieReviews">Movie Review/Rating</Link>
-    
     </li>
 
 <li className="nav__item">
@@ -305,7 +301,7 @@ abouts ?   <Dropdown
               menu={{items:abouts}}
               placement="bottomLeft"
             >
-      <a  className={active==='about' ? "nav__link rounded active dropdown-toggle p-2 p-lg-2" : "nav__link rounded dropdown-toggle p-2 p-lg-2"} onClick={(e)=>{
+      <a className={active==='about' ? "nav__link rounded active dropdown-toggle p-2 p-lg-2" : "nav__link rounded dropdown-toggle p-2 p-lg-2"} onClick={(e)=>{
               handleActive('about')
               // navToggle()
             }} id="navbarDropdown" role="button" aria-expanded="false">

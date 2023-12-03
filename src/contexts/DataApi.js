@@ -40,10 +40,27 @@ const getLocalReviewMovie = ()=>{
 
 }
 
+const getLocalReviewNews = ()=>{
+    if(typeof window !== 'undefined'){
+        const reviewNews = localStorage?.getItem("reviewNews")
+        if(reviewNews === null || reviewNews === '{}' || reviewNews == 'undefined'){
+        return {}
+        }
+        else if(typeof reviewNews == 'string'){
+            return JSON.parse(reviewNews)
+        }
+        else {
+            return reviewNews
+        }
+    }
+
+}
+
 
 const initialState = {
     currentMovie:getLocalCurrentMovie(),
     reviewMovie:getLocalReviewMovie(),
+    reviewNews: getLocalReviewNews(),
     currentUser:{
     },
     votes:[
@@ -84,6 +101,7 @@ const fun = async()=>{
  console.log(data)
 localStorage.setItem("currentMovie", JSON.stringify(data.currentMovie))
 localStorage.setItem("reviewMovie",JSON.stringify(data.reviewMovie))
+localStorage.setItem("reviewNews",JSON.stringify(data.reviewNews))
 }
 fun()
 },[state])
@@ -156,15 +174,18 @@ const handleReviewMovie = (reviewMovie)=>{
     dispatch({type:"REVIEW_MOVIE",payload:reviewMovie})
 }
 
-const handleComments = async(commentData)=>{
+const handleReviewNews = (reviewNews)=>{
+    dispatch({type:"REVIEW_NEWS",payload:reviewNews})
+}
+
+const handleComments = async(commentData, docName)=>{
 try{
-const res = await addDoc(collection(db,'comments'), commentData)
+const res = await addDoc(collection(db,docName), commentData)
 
 if(res){
     toast.success("Commented!")
 }
 // dispatch({type:'UPLOAD_COMMENTS', payload:commentData})
-
 }
 catch(err){
     toast.error("Error Occurred")
@@ -172,16 +193,18 @@ console.log(err)
 }
 }
 
-const getComments  = (id, setRecentComments)=>{
+
+
+const getComments  = (idKey, id, setRecentComments, docName, category)=>{
 try{
-onSnapshot(collection(db,'comments'),(res)=>{
+onSnapshot(collection(db, docName),(res)=>{
 setRecentComments(
     res.docs.map((doc)=>{
 return {
     ...doc.data(), id:doc.id
 }
     }).filter((comment)=>{
-return comment.movieId === id
+return comment[idKey] === id && comment.category === category
     })
 )
 })
@@ -190,6 +213,8 @@ catch(err){
 console.log(err)
 }
 }
+
+
 
 const handlePromotion = async(promotions)=>{
 try{
@@ -206,7 +231,7 @@ console.log(err)
 
 
 return (
-<DataContext.Provider value={{state, votes, active,handleReviewMovie,handleComments, getComments,handleCurrentMovie, handleActive, uploadUsers, getVotes,getAllVotes, handleVotes, handleActor, handleActress, handleDirector,bestActor, bestActress, bestDirector, handlePromotion}} >
+<DataContext.Provider value={{state, votes, active,handleReviewMovie,handleComments, getComments,handleCurrentMovie, handleActive, uploadUsers, getVotes,getAllVotes, handleVotes, handleActor, handleActress, handleDirector,bestActor, bestActress, bestDirector, handlePromotion, handleReviewNews}} >
 {children}
 </DataContext.Provider>
   )

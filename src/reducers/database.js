@@ -15,6 +15,14 @@ if (action.type === 'REVIEW_MOVIE'){
     }
 }
 
+if (action.type === 'REVIEW_NEWS'){
+    return{
+        ...state,
+        reviewNews:action.payload
+    }
+}
+
+
 if(action.type === 'UPLOAD_COMMENTS'){
     return {
         ...state,

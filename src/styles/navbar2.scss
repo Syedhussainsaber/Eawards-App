@@ -19,7 +19,7 @@ li {
   text-decoration: none;
 //   color: #800000;
 color: white;
-  font-size:18px;
+  font-size:16px;
 padding: 8px;
 margin: 5px;
 }
@@ -73,15 +73,15 @@ width: 100%;
   display: none;
 }
 .nav__toggler div {
-  width: 2rem;
-  height: 0.2rem;
-  margin: 0.4rem;
+  width: 1.8rem;
+  height: 0.1rem;
+  margin: 0.35rem;
   background: white;
   transition: 0.3s ease-in;
 }
 
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1480px) {
   .nav{
     // justify-content: flex-start;
     justify-content:space-evenly;
@@ -100,11 +100,12 @@ gap: 0.6rem;
     display: block;
     cursor: pointer;
   }
+  
 nav{
-    position: fixed;
+position: fixed;
 // left: 20px;
 justify-content: space-between !important;
-padding: 5px;
+// padding: 5px;
 // top: 0px;
 padding: 0 20px !important;
 z-index: 20;
@@ -113,6 +114,7 @@ margin-bottom: 0px;
 
 .title{
     display: inline-block;
+    font-size: 22px;
 }
 }
 .nav__link {

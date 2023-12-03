@@ -8,6 +8,8 @@ import { useData } from '@/contexts/DataApi'
 import moment from 'moment'
 import { useAuth } from '@/contexts/AuthAPI'
 import Footer from '@/components/Footer'
+import { useRouter } from 'next/router'
+
 const MovieReviews = ({nowPlaying}) => {
 
 const [comment, setComment] = useState('')
@@ -15,6 +17,7 @@ const {handleComments,handleActive, state, getComments} = useData()
 const [reviewMovie, setReviewMovie] = useState(nowPlaying.results[0])
 const {userData} = useAuth()
 const [recentComments, setRecentComments]  = useState([])
+const router = useRouter()
 
 useEffect(()=>{
 const fun = async()=>{
@@ -24,10 +27,10 @@ setReviewMovie(data.reviewMovie)
 fun()
 if( typeof reviewMovie === 'object' &&
 Object.keys(reviewMovie).length > 0 && reviewMovie != 'undefined' && reviewMovie !== null){
-  getComments(reviewMovie.id, setRecentComments)
+  getComments("movieId",reviewMovie.movieId, setRecentComments, "comments", "movies")
 }
 else {
-  getComments( nowPlaying.results[0].id, setRecentComments)
+  getComments("movieId", nowPlaying.results[0].movieId, setRecentComments, "comments", "movies")
 }
 // console.log(typeof comment)
 // console.log(reviewMovie)
@@ -36,10 +39,10 @@ else {
 useEffect(()=>{
   if( typeof reviewMovie === 'object' &&
   Object.keys(reviewMovie).length > 0 && reviewMovie != 'undefined' && reviewMovie !== null){
-    getComments(reviewMovie.id, setRecentComments)
+    getComments("movieId",nowPlaying.results[0].movieId , setRecentComments, "comments", "movies")
   }
   else {
-    getComments( nowPlaying.results[0].id, setRecentComments)
+    getComments("movieId", nowPlaying.results[0].movieId, setRecentComments, "comments", "movies")
   }
 },[reviewMovie])
 
@@ -52,7 +55,6 @@ handleActive('review')
   <>
 
 <div style={{position:'relative', top:'160px'}}>
-
 
   <div className="p-2 w-75 m-auto">
     <h2 className='text-center my-2 fw-bold py-2 mb-4'>
@@ -75,14 +77,14 @@ Object.keys(reviewMovie).length > 0 && reviewMovie != 'undefined' && reviewMovie
 <button className='btn btn-success my-2 w-100'>Submit Your Rating & Comment</button>
 </div>
 </div>
+
 <h5 className='fw-bold my-4'>Comments</h5>
 <div className='box border border-secondary my-2 rounded overflow-y-scroll py-2' style={{height:"280px"}}>
+
   <p className='m-3 my-2 mb-5 fw-bolder text-start'>Recent Comments</p>
   <div className='w-100'>
 {
-
 recentComments?.map((comment, index)=>{
-
     return <div key={index} className='d-flex my-2 rounded flex-column w-100 align-items-center text-black'> 
     <div className='d-flex w-100 px-3 justify-content-between align-items-start'>
       <p style={{fontSize:"14px"}}>{comment.userData.slice(0,comment.userData.indexOf("@"))}</p>
@@ -102,21 +104,23 @@ setComment(e.target.value)
       if( typeof reviewMovie === 'object' &&
       Object.keys(reviewMovie).length > 0 && reviewMovie != 'undefined' && reviewMovie !== null ){
         handleComments({
-          movieId: reviewMovie?.id,
-          moviieTitle: reviewMovie?.title,
+ movieiId: reviewMovie?.id,
+          movieTitle: reviewMovie?.title,
           comment: comment,
           timeStamp: moment().format("LLL"),
-          userData:userData.email
-          })
+          userData: userData ? userData.email : "Unknown_User@gmail.com",
+          category:"movies"
+          }, "comments")
       }
 else{
   handleComments({
     movieId: nowPlaying.results[0].id,
-    moviieTitle: nowPlaying.results[0].title,
+    movieTitle: nowPlaying.results[0].title,
     comment: comment,
     timeStamp: moment().format("LLL"),
-    userData:userData.email
-    })
+    userData:userData ? useData?.email :  "Unknown_User@gmail.com",
+    category:"movies"
+    },  "comments")
 }
       setComment('')
 }} >Comment</button>
@@ -135,12 +139,7 @@ return <div style={{width:'200px',margin:"10px"}} key={index}>
   })
 }
 </div>
-
-
-
-
 </div>
-
 <Footer/>
   </div>
   </>
